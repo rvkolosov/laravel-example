@@ -190,6 +190,11 @@ return [
          */
         PrettyRoutes\ServiceProvider::class,
 
+        /*
+         * Cors
+         */
+        Barryvdh\Cors\ServiceProvider::class,
+
     ],
 
     /*
