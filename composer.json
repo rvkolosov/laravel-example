@@ -14,6 +14,7 @@
         "doctrine/dbal": "^2.9",
         "fideloper/proxy": "^4.0",
         "garygreen/pretty-routes": "^1.0",
+        "jedrzej/searchable": "^0.0.14",
         "laravel/framework": "5.7.*",
         "laravel/passport": "^7.0",
         "laravel/tinker": "^1.0"

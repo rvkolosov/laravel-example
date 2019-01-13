@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "70f768e28b910d1b4e77557de39dbdc2",
+    "content-hash": "00c82572bf7f4b4edcc18a8a0dc47364",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1559,6 +1559,63 @@
             ],
             "description": "Highlight PHP code in terminal",
             "time": "2018-09-29T18:48:56+00:00"
+        },
+        {
+            "name": "jedrzej/searchable",
+            "version": "0.0.14",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jedrzej/searchable.git",
+                "reference": "b2c45b77e436dbff0ad5ac5cdf57951d9b253608"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jedrzej/searchable/zipball/b2c45b77e436dbff0ad5ac5cdf57951d9b253608",
+                "reference": "b2c45b77e436dbff0ad5ac5cdf57951d9b253608",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "*",
+                "illuminate/support": "*"
+            },
+            "require-dev": {
+                "codeception/codeception": "2.0.*",
+                "codeception/specify": "*"
+            },
+            "suggest": {
+                "jedrzej/sortable": "Allows sorting your models using request parameters",
+                "jedrzej/withable": "Allows eager loading of relations using request parameters"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Jedrzej\\": "src/Jedrzej/",
+                    "Illuminate\\": "vendor/laravel/framework/src/Illuminate/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jędrzej Kuryło",
+                    "email": "jedrzej.kurylo@gmail.com"
+                }
+            ],
+            "description": "Searchable trait for Laravel's Eloquent models - filter your models using request parameters",
+            "homepage": "https://github.com/jedrzej/searchable",
+            "keywords": [
+                "api",
+                "eloquent",
+                "filter",
+                "laravel",
+                "model",
+                "request",
+                "search",
+                "searchable"
+            ],
+            "time": "2017-10-30T12:38:48+00:00"
         },
         {
             "name": "justinrainbow/json-schema",
