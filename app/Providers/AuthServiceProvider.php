@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use App\Models\Permission;
 use App\Models\Role;
 use App\Models\Todo;
+use App\Policies\PermissionPolicy;
 use App\Policies\RolePolicy;
 use App\Policies\TodoPolicy;
 use Illuminate\Support\Facades\Gate;
@@ -21,6 +23,7 @@ class AuthServiceProvider extends ServiceProvider
         'App\Model' => 'App\Policies\ModelPolicy',
         Role::class => RolePolicy::class,
         Todo::class => TodoPolicy::class,
+        Permission::class => PermissionPolicy::class,
     ];
 
     /**

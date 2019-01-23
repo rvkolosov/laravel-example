@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\Permission;
 use App\Models\Role;
 use App\Models\Todo;
 use Illuminate\Notifications\Notifiable;
@@ -73,19 +74,25 @@ class User extends Authenticatable
      */
     public function isRole(string $name): bool
     {
-        foreach ($this->roles()->get() as $role)
-        {
-            if ($role->name === $name)
-            {
-                return true;
-            }
-        }
+        return in_array($name, $this->roles()->get()->pluck('name')->toArray());
+    }
 
-        return false;
+    /**
+     * Check permission to role
+     *
+     * @param string $name
+     * @return bool
+     */
+    public function hasPermission(string $name): bool
+    {
+        $this->load('roles.permissions');
+
+        return in_array($name, $this->roles->pluck('permissions')->collapse()->pluck('name')->toArray());
     }
 
     public function todos()
     {
         return $this->hasMany(Todo::class);
     }
+
 }

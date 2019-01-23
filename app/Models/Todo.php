@@ -23,7 +23,7 @@ use Jedrzej\Searchable\SearchableTrait;
  * @property-read \App\User $user
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Todo filtered($query = array())
  * @method static bool|null forceDelete()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Todo loadRelations($model)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Todo loadRelations()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Todo newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Todo newQuery()
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Todo onlyTrashed()

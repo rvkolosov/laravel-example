@@ -7,6 +7,8 @@ use App\Http\Requests\Todo\UpdateTodoRequest;
 use App\Http\Resources\Todo\TodoResource;
 use App\Http\Resources\Todo\TodosResource;
 use App\Models\Todo;
+use App\User;
+use Auth;
 use Illuminate\Http\Request;
 
 class TodoController extends Controller
@@ -57,7 +59,7 @@ class TodoController extends Controller
      */
     public function show(Todo $todo)
     {
-        return new TodoResource($todo->loadRelations($todo));
+        return new TodoResource($todo->loadRelations());
     }
 
     /**

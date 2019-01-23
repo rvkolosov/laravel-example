@@ -18,4 +18,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('roles', 'RoleController');
+Route::apiResource('permissions', 'PermissionController');
 Route::apiResource('todos', 'TodoController');

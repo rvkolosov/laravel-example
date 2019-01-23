@@ -2,18 +2,21 @@
 
 namespace App\Traits;
 
-
-use Illuminate\Database\Eloquent\Model;
-
 trait WithTrait
 {
+    /**
+     * @param $query
+     * @return mixed
+     */
     public function scopeWithRelations($query)
     {
-        if (request()->has('with'))
+        if (request()->has('with') && is_array(request()->input('with')))
         {
-            foreach (request()->input('with') as $relation)
+            foreach (request()->input('with') as $relations)
             {
-                $query->with($relation);
+                $this->hasRelations($relations);
+
+                $query->with($relations);
             }
         }
 
@@ -21,24 +24,42 @@ trait WithTrait
     }
 
     /**
-     * @param $query
-     * @param Model $model
      * @return mixed
      */
-    public function scopeLoadRelations($query, $model)
+    public function scopeLoadRelations()
     {
-        if (request()->has('with'))
+        if (request()->has('with') && is_array(request()->input('with')))
         {
             $tmp = [];
 
-            foreach (request()->input('with') as $relation)
+            foreach (request()->input('with') as $relations)
             {
-                array_push($tmp, $relation);
+                $this->hasRelations($relations);
+
+                array_push($tmp, $relations);
             }
 
-            $model->load($tmp);
+            $this->load($tmp);
         }
 
-        return $model;
+        return $this;
+    }
+
+    /**
+     * @param $relations
+     */
+    private function hasRelations($relations)
+    {
+        try
+        {
+            $this->has($relations);
+        }
+        catch (\Exception $exception)
+        {
+            if (!config('app.debug'))
+            {
+                abort(404);
+            }
+        }
     }
 }

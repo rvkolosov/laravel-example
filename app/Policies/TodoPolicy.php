@@ -56,7 +56,8 @@ class TodoPolicy
      */
     public function update(User $user, Todo $todo)
     {
-        return $user->id == $todo->id;
+        return $user->hasPermission('todo-update')
+            && $user->id == $todo->id;
     }
 
     /**
@@ -68,7 +69,8 @@ class TodoPolicy
      */
     public function delete(User $user, Todo $todo)
     {
-        return $user->id == $todo->id;
+        return $user->hasPermission('todo-delete')
+            && $user->id == $todo->id;
     }
 
     /**
@@ -80,7 +82,8 @@ class TodoPolicy
      */
     public function restore(User $user, Todo $todo)
     {
-        return $user->id == $todo->id;
+        return $user->hasPermission('todo-restore')
+            && $user->id == $todo->id;
     }
 
     /**
