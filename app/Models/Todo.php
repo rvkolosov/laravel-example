@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Jedrzej\Searchable\SearchableTrait;
 
-
 /**
  * App\Models\Todo
  *

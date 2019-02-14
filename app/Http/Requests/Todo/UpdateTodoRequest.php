@@ -24,7 +24,7 @@ class UpdateTodoRequest extends FormRequest
     public function rules()
     {
         return [
-            'user_id' => 'sometimes|number|exists:users,id',
+            'user_id' => 'sometimes|numeric|exists:users,id',
             'name' => 'sometimes|max:255',
             'description' => 'sometimes|max:255',
             'is_complete' => 'sometimes|boolean',

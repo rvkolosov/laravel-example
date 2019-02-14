@@ -11,6 +11,7 @@ use App\User;
 use Auth;
 use Illuminate\Http\Request;
 
+
 class TodoController extends Controller
 {
     public function __constructor()

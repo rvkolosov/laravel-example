@@ -24,7 +24,7 @@ class StoreTodoRequest extends FormRequest
     public function rules()
     {
         return [
-            'user_id' => 'required|number|exists:users,id',
+            'user_id' => 'required|numeric|exists:users,id',
             'name' => 'required|max:255',
             'description' => 'sometimes|max:255',
             'is_complete' => 'sometimes|boolean',

@@ -195,6 +195,11 @@ return [
          */
         Barryvdh\Cors\ServiceProvider::class,
 
+        /*
+         * Swagger
+         */
+        L5Swagger\L5SwaggerServiceProvider::class,
+
     ],
 
     /*
