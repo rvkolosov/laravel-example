@@ -17,20 +17,16 @@ class RolePolicy
      */
     public function before($user, $ability)
     {
-        if ($user->isRole('admin')) {
-            return true;
-        }
-
-        return null;
+        if ($user->isRole('admin')) return true;
     }
 
     /**
-     * Determine whether the user can view all roles.
+     * Determine whether the user can view list of roles.
      *
      * @param  \App\User $user
      * @return mixed
      */
-    public function index(User $user)
+    public function list(User $user)
     {
         return false;
     }

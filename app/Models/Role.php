@@ -36,6 +36,7 @@ use Jedrzej\Searchable\SearchableTrait;
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Role withTrashed()
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Role withoutTrashed()
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Permission[] $permissions
  */
 class Role extends Model
 {

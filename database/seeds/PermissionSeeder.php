@@ -15,6 +15,10 @@ class PermissionSeeder extends Seeder
     {
         $permissions = [];
 
+        $permission = Permission::create(['name' => 'todo-list']);
+
+        array_push($permissions, $permission->id);
+
         $permission = Permission::create(['name' => 'todo-view']);
 
         array_push($permissions, $permission->id);

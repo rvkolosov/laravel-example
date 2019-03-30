@@ -17,7 +17,13 @@
  *      property="Role",
  *      type="string",
  *      description="Relations for Role model",
- *      enum={"users"}
+ *      enum={"users", "permissions"}
+ *  ),
+ *  @OA\Property(
+ *      property="Permission",
+ *      type="string",
+ *      description="Relations for Permission model",
+ *      enum={"roles"}
  *  ),
  *  @OA\Property(
  *      property="Todo",

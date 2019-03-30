@@ -20,7 +20,7 @@ class PermissionController extends Controller
     protected function resourceAbilityMap()
     {
         return array_merge(parent::resourceAbilityMap(), [
-            'index' => 'index',
+            'index' => 'list',
             'show' => 'view',
         ]);
     }

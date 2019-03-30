@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\Auth\ChangeAuthRequest;
 use App\Http\Requests\Auth\LoginAuthRequest;
 use App\Http\Requests\Auth\RegisterAuthRequest;
+use App\Models\Role;
 use App\User;
 use Auth;
 
@@ -50,6 +51,10 @@ class AuthController extends Controller
         $input['password'] = bcrypt($input['password']);
 
         $user = User::create($input);
+
+        $role = Role::whereName('user')->get();
+
+        $user->roles()->attach($role->first->id);
 
         $token = $user->createToken(config('app.name'))->accessToken;
 

@@ -24,3 +24,9 @@ Route::post('auth/change', 'AuthController@change')->name('auth.change');
 Route::apiResource('roles', 'RoleController');
 Route::apiResource('permissions', 'PermissionController');
 Route::apiResource('todos', 'TodoController');
+
+Route::post('roles/{role}/users/{user}', 'RoleUserController@store')->name('roles.users.store');
+Route::delete('roles/{role}/users/{user}', 'RoleUserController@delete')->name('roles.users.delete');
+
+Route::post('permissions/{permission}/roles/{role}', 'PermissionRoleController@store')->name('permissions.roles.store');
+Route::delete('permissions/{permission}/roles/{role}', 'PermissionRoleController@delete')->name('permissions.roles.delete');

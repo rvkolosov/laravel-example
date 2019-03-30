@@ -17,20 +17,16 @@ class TodoPolicy
      */
     public function before($user, $ability)
     {
-        if ($user->isRole('admin')) {
-            return true;
-        }
-
-        return null;
+        if ($user->isRole('admin')) return true;
     }
 
     /**
-     * Determine whether the user can view all todos.
+     * Determine whether the user can view list of todos.
      *
      * @param  \App\User $user
      * @return mixed
      */
-    public function index(User $user)
+    public function list(User $user)
     {
         return true;
     }
@@ -55,7 +51,7 @@ class TodoPolicy
      */
     public function create(User $user)
     {
-        return true;
+        return $user->hasPermission('todo-create');
     }
 
     /**

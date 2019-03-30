@@ -3,10 +3,9 @@
 namespace App\Policies;
 
 use App\User;
-use App\Models\Permission;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class PermissionPolicy
+class UserPolicy
 {
     use HandlesAuthorization;
 
@@ -21,7 +20,7 @@ class PermissionPolicy
     }
 
     /**
-     * Determine whether the user can view list of permissions.
+     * Determine whether the user can view list of users.
      *
      * @param  \App\User $user
      * @return mixed
@@ -32,19 +31,19 @@ class PermissionPolicy
     }
 
     /**
-     * Determine whether the user can view the permission.
+     * Determine whether the user can view the model.
      *
      * @param  \App\User  $user
-     * @param  \App\Models\Permission  $permission
+     * @param  \App\User  $model
      * @return mixed
      */
-    public function view(User $user, Permission $permission)
+    public function view(User $user, User $model)
     {
         return false;
     }
 
     /**
-     * Determine whether the user can create permissions.
+     * Determine whether the user can create models.
      *
      * @param  \App\User  $user
      * @return mixed
@@ -55,49 +54,49 @@ class PermissionPolicy
     }
 
     /**
-     * Determine whether the user can update the permission.
+     * Determine whether the user can update the model.
      *
      * @param  \App\User  $user
-     * @param  \App\Models\Permission  $permission
+     * @param  \App\User  $model
      * @return mixed
      */
-    public function update(User $user, Permission $permission)
+    public function update(User $user, User $model)
     {
         return false;
     }
 
     /**
-     * Determine whether the user can delete the permission.
+     * Determine whether the user can delete the model.
      *
      * @param  \App\User  $user
-     * @param  \App\Models\Permission  $permission
+     * @param  \App\User  $model
      * @return mixed
      */
-    public function delete(User $user, Permission $permission)
+    public function delete(User $user, User $model)
     {
         return false;
     }
 
     /**
-     * Determine whether the user can restore the permission.
+     * Determine whether the user can restore the model.
      *
      * @param  \App\User  $user
-     * @param  \App\Models\Permission  $permission
+     * @param  \App\User  $model
      * @return mixed
      */
-    public function restore(User $user, Permission $permission)
+    public function restore(User $user, User $model)
     {
         return false;
     }
 
     /**
-     * Determine whether the user can permanently delete the permission.
+     * Determine whether the user can permanently delete the model.
      *
      * @param  \App\User  $user
-     * @param  \App\Models\Permission  $permission
+     * @param  \App\User  $model
      * @return mixed
      */
-    public function forceDelete(User $user, Permission $permission)
+    public function forceDelete(User $user, User $model)
     {
         return false;
     }
