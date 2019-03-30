@@ -17,6 +17,14 @@ class PermissionController extends Controller
         $this->authorizeResource(Permission::class);
     }
 
+    protected function resourceAbilityMap()
+    {
+        return array_merge(parent::resourceAbilityMap(), [
+            'index' => 'index',
+            'show' => 'view',
+        ]);
+    }
+
     /**
      * Display a listing of the resource.
      *

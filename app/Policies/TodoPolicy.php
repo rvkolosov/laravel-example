@@ -25,6 +25,17 @@ class TodoPolicy
     }
 
     /**
+     * Determine whether the user can view all todos.
+     *
+     * @param  \App\User $user
+     * @return mixed
+     */
+    public function index(User $user)
+    {
+        return true;
+    }
+
+    /**
      * Determine whether the user can view the todo.
      *
      * @param  \App\User  $user

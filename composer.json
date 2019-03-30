@@ -18,7 +18,7 @@
         "jedrzej/searchable": "^0.0.14",
         "laravel/framework": "5.8.*",
         "laravel/passport": "^7.0",
-        "laravel/telescope": "^1.0",
+        "laravel/telescope": "^2.0",
         "laravel/tinker": "^1.0",
         "zircote/swagger-php": "3.*"
     },

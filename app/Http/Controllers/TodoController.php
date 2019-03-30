@@ -34,7 +34,7 @@ class TodoController extends Controller
     {
         $todos = Todo::filtered()
             ->withRelations()
-            ->paginate($request->input('count') ?? 15);
+            ->paginate($request->input('count') ?? null);
 
         return TodosResource::collection($todos);
     }

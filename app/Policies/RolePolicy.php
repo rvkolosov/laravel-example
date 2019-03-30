@@ -25,6 +25,17 @@ class RolePolicy
     }
 
     /**
+     * Determine whether the user can view all roles.
+     *
+     * @param  \App\User $user
+     * @return mixed
+     */
+    public function index(User $user)
+    {
+        return false;
+    }
+
+    /**
      * Determine whether the user can view the role.
      *
      * @param  \App\User  $user

@@ -17,6 +17,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::post('auth/login', 'AuthController@login')->name('auth.login');
+Route::post('auth/register', 'AuthController@register')->name('auth.register');
+Route::post('auth/change', 'AuthController@change')->name('auth.change');
+
 Route::apiResource('roles', 'RoleController');
 Route::apiResource('permissions', 'PermissionController');
 Route::apiResource('todos', 'TodoController');

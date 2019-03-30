@@ -25,6 +25,17 @@ class PermissionPolicy
     }
 
     /**
+     * Determine whether the user can view all permissions.
+     *
+     * @param  \App\User $user
+     * @return mixed
+     */
+    public function index(User $user)
+    {
+        return false;
+    }
+
+    /**
      * Determine whether the user can view the permission.
      *
      * @param  \App\User  $user
