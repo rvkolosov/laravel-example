@@ -14,7 +14,7 @@ use Illuminate\Http\Request;
 
 class TodoController extends Controller
 {
-    public function __constructor()
+    public function __construct()
     {
         $this->middleware('auth:api')
             ->except([

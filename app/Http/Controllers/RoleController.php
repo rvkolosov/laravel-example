@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 
 class RoleController extends Controller
 {
-    public function __constructor()
+    public function __construct()
     {
         $this->middleware('auth:api');
         $this->authorizeResource(Role::class);
@@ -20,7 +20,7 @@ class RoleController extends Controller
     protected function resourceAbilityMap()
     {
         return array_merge(parent::resourceAbilityMap(), [
-            'index' => 'index',
+            'index' => 'list',
             'show' => 'view',
         ]);
     }

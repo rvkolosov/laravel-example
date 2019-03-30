@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 
 class PermissionController extends Controller
 {
-    public function __constructor()
+    public function __construct()
     {
         $this->middleware('auth:api');
         $this->authorizeResource(Permission::class);

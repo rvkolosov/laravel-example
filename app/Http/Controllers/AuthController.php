@@ -58,7 +58,7 @@ class AuthController extends Controller
 
         $token = $user->createToken(config('app.name'))->accessToken;
 
-        return response()->json(['user' => $user, 'token' => $token], 201);
+        return response()->json(['user' => $user, 'access_token' => $token], 201);
     }
 
     /**
@@ -85,6 +85,6 @@ class AuthController extends Controller
             abort(401, 'Unauthenticated!');
         }
 
-        return response()->json(['user' => $user, 'token' => $token], 201);
+        return response()->json(['user' => $user, 'access_token' => $token], 201);
     }
 }
