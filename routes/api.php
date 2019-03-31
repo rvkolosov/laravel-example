@@ -14,7 +14,7 @@ use Illuminate\Http\Request;
 */
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+    return response()->json(['data' => $request->user()]);
 });
 
 Route::post('auth/login', 'AuthController@login')->name('auth.login');
