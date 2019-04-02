@@ -14,16 +14,18 @@ use Illuminate\Http\Request;
 */
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return response()->json(['data' => $request->user()]);
+    return response()->json(['user' => $request->user()]);
 });
 
 Route::post('auth/login', 'AuthController@login')->name('auth.login');
 Route::post('auth/register', 'AuthController@register')->name('auth.register');
 Route::post('auth/change', 'AuthController@change')->name('auth.change');
+Route::post('auth/logout', 'AuthController@logout')->name('auth.logout');
 
 Route::apiResource('roles', 'RoleController');
 Route::apiResource('permissions', 'PermissionController');
 Route::apiResource('todos', 'TodoController');
+Route::apiResource('messages', 'MessageController');
 
 Route::post('roles/{role}/users/{user}', 'RoleUserController@store')->name('roles.users.store');
 Route::delete('roles/{role}/users/{user}', 'RoleUserController@delete')->name('roles.users.delete');

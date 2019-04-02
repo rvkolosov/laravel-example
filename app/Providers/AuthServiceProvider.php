@@ -2,9 +2,11 @@
 
 namespace App\Providers;
 
+use App\Models\Message;
 use App\Models\Permission;
 use App\Models\Role;
 use App\Models\Todo;
+use App\Policies\MessagePolicy;
 use App\Policies\PermissionPolicy;
 use App\Policies\RolePolicy;
 use App\Policies\TodoPolicy;
@@ -26,6 +28,7 @@ class AuthServiceProvider extends ServiceProvider
         Todo::class => TodoPolicy::class,
         Permission::class => PermissionPolicy::class,
         User::class => UserPolicy::class,
+        Message::class => MessagePolicy::class,
     ];
 
     /**

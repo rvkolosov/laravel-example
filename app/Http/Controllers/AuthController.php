@@ -8,12 +8,15 @@ use App\Http\Requests\Auth\RegisterAuthRequest;
 use App\Models\Role;
 use App\User;
 use Auth;
+use DB;
 
 class AuthController extends Controller
 {
     public function __construct()
     {
         $this->middleware('guest');
+        $this->middleware('auth:api')
+            ->only('logout');
     }
 
     /**
@@ -38,7 +41,7 @@ class AuthController extends Controller
             abort(401, 'Unauthenticated!');
         }
 
-        return response()->json(['user' => $user, 'token' => $token], 200);
+        return response()->json(['token' => $token], 200);
     }
 
     /**
@@ -56,9 +59,25 @@ class AuthController extends Controller
 
         $user->roles()->attach($role->first->id);
 
-        $token = $user->createToken(config('app.name'))->accessToken;
+        return response()->json(['user' => $user], 201);
+    }
 
-        return response()->json(['user' => $user, 'access_token' => $token], 201);
+    /**
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
+     */
+    public function logout()
+    {
+        $accessToken = Auth::user()->token();
+
+        DB::table('oauth_refresh_tokens')
+            ->where('access_token_id', $accessToken->id)
+            ->update([
+                'revoked' => true
+            ]);
+
+        $accessToken->revoke();
+
+        return response()->json(null, 204);
     }
 
     /**
@@ -77,14 +96,12 @@ class AuthController extends Controller
             $user = Auth::user();
 
             $user->update(['password' => bcrypt($request->input('new_password'))]);
-
-            $token = $user->createToken(config('app.name'))->accessToken;
         }
         else
         {
             abort(401, 'Unauthenticated!');
         }
 
-        return response()->json(['user' => $user, 'access_token' => $token], 201);
+        return response()->json(['user' => $user], 201);
     }
 }

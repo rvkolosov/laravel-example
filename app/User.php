@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\Message;
 use App\Models\Permission;
 use App\Models\Role;
 use App\Models\Todo;
@@ -38,6 +39,7 @@ use Laravel\Passport\HasApiTokens;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereRememberToken($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Message[] $messages
  */
 class User extends Authenticatable
 {
@@ -90,9 +92,20 @@ class User extends Authenticatable
         return in_array($name, $this->roles->pluck('permissions')->collapse()->pluck('name')->toArray());
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function todos()
     {
         return $this->hasMany(Todo::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
     }
 
 }

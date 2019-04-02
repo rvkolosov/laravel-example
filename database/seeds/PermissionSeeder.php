@@ -50,5 +50,44 @@ class PermissionSeeder extends Seeder
         $role = Role::find(3);
 
         $role->permissions()->attach($permissions);
+
+        //message permissions
+        $permissions = [];
+
+        $permission = Permission::create(['name' => 'message-list']);
+
+        array_push($permissions, $permission->id);
+
+        $permission = Permission::create(['name' => 'message-view']);
+
+        array_push($permissions, $permission->id);
+
+        $permission = Permission::create(['name' => 'message-create']);
+
+        array_push($permissions, $permission->id);
+
+        $permission = Permission::create(['name' => 'message-update']);
+
+        array_push($permissions, $permission->id);
+
+        $permission = Permission::create(['name' => 'message-delete']);
+
+        array_push($permissions, $permission->id);
+
+        $permission = Permission::create(['name' => 'message-restore']);
+
+        array_push($permissions, $permission->id);
+
+        $role = Role::find(1);
+
+        $role->permissions()->attach($permissions);
+
+        $role = Role::find(2);
+
+        $role->permissions()->attach($permissions);
+
+        $role = Role::find(3);
+
+        $role->permissions()->attach($permissions);
     }
 }
