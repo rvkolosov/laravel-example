@@ -40,6 +40,10 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
+        Gate::define('viewWebSocketsDashboard', function ($user = null) {
+            return $user->isRole('admin');
+        });
+
         Passport::routes();
     }
 }
