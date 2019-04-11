@@ -19,10 +19,6 @@ return [
             'secret' => env('PUSHER_APP_SECRET'),
             'enable_client_messages' => true,
             'enable_statistics' => true,
-            'options' => [
-                'cluster' => env('PUSHER_APP_CLUSTER'),
-                'encrypted' => false,
-            ],
         ],
     ],
 
