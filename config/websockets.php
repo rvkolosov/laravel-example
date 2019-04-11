@@ -21,7 +21,7 @@ return [
             'enable_statistics' => true,
             'options' => [
                 'cluster' => env('PUSHER_APP_CLUSTER'),
-                'encrypted' => true,
+                'encrypted' => false,
             ],
         ],
     ],
