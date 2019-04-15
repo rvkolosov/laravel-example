@@ -14,6 +14,7 @@
         "beyondcode/laravel-websockets": "^1.1",
         "darkaonline/l5-swagger": "5.8.*",
         "doctrine/dbal": "^2.9",
+        "elasticquent/elasticquent": "dev-master",
         "fideloper/proxy": "^4.0",
         "garygreen/pretty-routes": "^1.0",
         "jedrzej/searchable": "^0.0.14",
@@ -22,6 +23,7 @@
         "laravel/passport": "^7.0",
         "laravel/telescope": "^2.0",
         "laravel/tinker": "^1.0",
+        "nesbot/carbon": "~1.0",
         "predis/predis": "^1.1",
         "zircote/swagger-php": "3.*"
     },
@@ -37,7 +39,11 @@
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
-        "sort-packages": true
+        "sort-packages": true,
+        "platform": {
+            "ext-pcntl": "7.3",
+            "ext-posix": "7.3"
+        }
     },
     "extra": {
         "laravel": {
