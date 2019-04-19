@@ -16,15 +16,17 @@ class NewRoomMessage implements ShouldBroadcast
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     public $data;
+    public $userName;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($data)
+    public function __construct($data, $userName)
     {
         $this->data = $data;
+        $this->userName = $userName;
     }
 
     /**
@@ -57,7 +59,7 @@ class NewRoomMessage implements ShouldBroadcast
         return [
             'id' => $this->data['id'],
             'body' => $this->data['body'],
-            'user_name' => Auth::user()->name,
+            'user_name' => $this->userName,
         ];
     }
 }

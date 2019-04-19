@@ -57,11 +57,11 @@ class MessageController extends Controller
         {
             $data = array_merge($message->toArray(), ['room_id' => $request->input('room_id')]);
 
-            broadcast(new NewRoomMessage($data))->toOthers();
+            broadcast(new NewRoomMessage($data, Auth::user()->name))->toOthers();
         }
         else
         {
-            broadcast(new NewMessage($message))->toOthers();
+            broadcast(new NewMessage($message, Auth::user()->name))->toOthers();
         }
 
 
