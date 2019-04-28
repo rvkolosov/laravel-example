@@ -15,7 +15,7 @@ class TmpReport extends KoolReport
      */
     function setup()
     {
-        $this->src('srv-fullstack')
+        $this->src('mysql')
             ->query("SELECT * FROM todos")
             ->pipe($this->dataStore('todos'));
     }
