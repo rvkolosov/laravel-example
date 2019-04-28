@@ -18,6 +18,7 @@
         "fideloper/proxy": "^4.0",
         "garygreen/pretty-routes": "^1.0",
         "jedrzej/searchable": "^0.0.14",
+        "koolphp/koolreport": "^3.25",
         "laravel/framework": "5.8.*",
         "laravel/horizon": "^3.1",
         "laravel/passport": "^7.0",

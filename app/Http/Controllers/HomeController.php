@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Reports\TmpReport;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -24,5 +25,14 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+
+    public function report()
+    {
+        $report = new TmpReport();
+
+        $report->run();
+
+        return view('report', ['report' => $report]);
     }
 }

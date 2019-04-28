@@ -1,2 +1,2 @@
 #!/bin/bash
-php /var/www/artisan websockets:serve
+php /var/www/srv-fullstack/artisan websockets:serve
