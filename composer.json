@@ -53,7 +53,8 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "app/"
+            "App\\": "app/",
+            "koolreport\\laravel\\": "vendor/koolphp/koolreport/packages/laravel"
         },
         "classmap": [
             "database/seeds",
