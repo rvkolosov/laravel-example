@@ -40,7 +40,7 @@ return [
                 'encrypted' => true,
                 'host' => env('APP_URL'),
                 'port' => 6001,
-                'scheme' => 'http',
+                'scheme' => 'https',
             ],
         ],
 
