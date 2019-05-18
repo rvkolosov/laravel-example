@@ -110,7 +110,7 @@ return [
         /*
          * Passphrase for your local_cert file.
          */
-        'passphrase' => '',
+        'passphrase' => null,
 
         'verify_peer' => false,
     ],
