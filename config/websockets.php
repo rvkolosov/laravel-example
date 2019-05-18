@@ -99,13 +99,13 @@ return [
          * certificate chain of issuers. The private key also may be contained
          * in a separate file specified by local_pk.
          */
-        'local_cert' => env('LOCAL_CERT', null),
+        'local_cert' => '/etc/letsencrypt/live/rvkolosov.ru/fullchain.pem',//env('LOCAL_CERT', null),
 
         /*
          * Path to local private key file on filesystem in case of separate files for
          * certificate (local_cert) and private key.
          */
-        'local_pk' => env('LOCAL_PK', null),
+        'local_pk' => '/etc/letsencrypt/live/rvkolosov.ru/privkey.pem',//env('LOCAL_PK', null),
 
         /*
          * Passphrase for your local_cert file.
