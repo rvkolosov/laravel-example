@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "6d5f75fc7f4f36cc5c99b2d1a0c2dfd3",
+    "content-hash": "4f07427286d99190fe19bc5665ffd585",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1541,16 +1541,16 @@
         },
         {
             "name": "elasticsearch/elasticsearch",
-            "version": "v6.5.0",
+            "version": "v6.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/elastic/elasticsearch-php.git",
-                "reference": "3ff319bc725d6e53e90a3e3a8aa4d5538b9a3866"
+                "reference": "8bde3f3b821361ec75e08a3746231d87230a2d3a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/elastic/elasticsearch-php/zipball/3ff319bc725d6e53e90a3e3a8aa4d5538b9a3866",
-                "reference": "3ff319bc725d6e53e90a3e3a8aa4d5538b9a3866",
+                "url": "https://api.github.com/repos/elastic/elasticsearch-php/zipball/8bde3f3b821361ec75e08a3746231d87230a2d3a",
+                "reference": "8bde3f3b821361ec75e08a3746231d87230a2d3a",
                 "shasum": ""
             },
             "require": {
@@ -1560,7 +1560,7 @@
                 "psr/log": "~1.0"
             },
             "require-dev": {
-                "cpliakas/git-wrapper": "~1.0",
+                "cpliakas/git-wrapper": "^1.7 || ^2.1",
                 "doctrine/inflector": "^1.1",
                 "mockery/mockery": "^1.2",
                 "phpstan/phpstan-shim": "^0.9 || ^0.11",
@@ -1597,7 +1597,7 @@
                 "elasticsearch",
                 "search"
             ],
-            "time": "2019-04-24T08:57:42+00:00"
+            "time": "2019-04-29T15:14:22+00:00"
         },
         {
             "name": "erusev/parsedown",
@@ -2833,7 +2833,7 @@
                 {
                     "name": "Luís Otávio Cobucci Oblonczyk",
                     "email": "lcobucci@gmail.com",
-                    "role": "developer"
+                    "role": "Developer"
                 }
             ],
             "description": "A simple library to work with JSON Web Token and JSON Web Signature",
@@ -5504,7 +5504,7 @@
                 },
                 {
                     "name": "Gert de Pagter",
-                    "email": "backendtea@gmail.com"
+                    "email": "BackEndTea@gmail.com"
                 }
             ],
             "description": "Symfony polyfill for ctype functions",
@@ -8283,7 +8283,8 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.1.3"
+        "php": "^7.1.3",
+        "ext-curl": "^7.1"
     },
     "platform-dev": [],
     "platform-overrides": {
