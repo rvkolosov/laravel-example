@@ -33,6 +33,6 @@ class HomeController extends Controller
 
         $report->run();
 
-        return view('report', ['report' => $report]);
+        return view('report', compact('report'));
     }
 }

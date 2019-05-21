@@ -16,5 +16,5 @@ Broadcast::channel('App.User.{id}', function ($user, $id) {
 });
 
 Broadcast::channel('rooms.{id}', function($user, $room_id) {
-    return in_array($user->id, [1, 2]);
+    return $user->isRole('admin');
 });
