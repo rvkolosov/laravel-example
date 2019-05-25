@@ -26,8 +26,6 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command('telescope:prune --hours=72')
             ->daily();
-        $schedule->command('websockets:clean')
-            ->daily();
     }
 
     /**
