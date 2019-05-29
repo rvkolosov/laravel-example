@@ -9,6 +9,7 @@ use App\Models\Role;
 use App\User;
 use Auth;
 use DB;
+use Hash;
 
 class AuthController extends Controller
 {
@@ -51,7 +52,7 @@ class AuthController extends Controller
     public function register(RegisterAuthRequest $request)
     {
         $input = $request->all();
-        $input['password'] = bcrypt($input['password']);
+        $input['password'] = Hash::make($input['password']);
 
         $user = User::create($input);
 
@@ -95,7 +96,7 @@ class AuthController extends Controller
         {
             $user = Auth::user();
 
-            $user->update(['password' => bcrypt($request->input('new_password'))]);
+            $user->update(['password' => Hash::make($request->input('new_password'))]);
         }
         else
         {
