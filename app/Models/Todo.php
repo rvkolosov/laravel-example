@@ -46,7 +46,7 @@ use ScoutElastic\Searchable;
  */
 class Todo extends Model
 {
-    use SoftDeletes, SearchableTrait, WithTrait, ElasticquentTrait, Searchable;
+    use SoftDeletes, SearchableTrait, WithTrait, Searchable;
 
     protected $fillable = [
         'user_id',
