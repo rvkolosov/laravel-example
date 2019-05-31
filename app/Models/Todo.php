@@ -63,6 +63,7 @@ class Todo extends Model
 
     // Here you can specify a mapping for model fields
     protected $mapping = [
+        /*
         'properties' => [
             'name' => [
                 'type' => 'text',
@@ -73,6 +74,7 @@ class Todo extends Model
                 // Also you can configure multi-fields, more details you can find here https://www.elastic.co/guide/en/elasticsearch/reference/current/multi-fields.html
             ],
         ]
+        */
     ];
 
     /**
