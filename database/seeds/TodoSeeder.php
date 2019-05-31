@@ -19,7 +19,6 @@ class TodoSeeder extends Seeder
             'user_id' => $user->id,
         ]);
 
-        Todo::createIndex();
-        Todo::addAllToIndex();
+        Todo::reindex();
     }
 }
