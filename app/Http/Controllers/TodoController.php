@@ -49,8 +49,6 @@ class TodoController extends Controller
     {
         $todo = Todo::create($request->all());
 
-        Todo::reindex();
-
         return new TodoResource($todo);
     }
 
@@ -76,8 +74,6 @@ class TodoController extends Controller
     {
         $todo->update($request->all());
 
-        Todo::reindex();
-
         return new TodoResource($todo);
     }
 
@@ -91,8 +87,6 @@ class TodoController extends Controller
     public function destroy(Todo $todo)
     {
         $todo->delete();
-
-        Todo::reindex();
 
         return new TodoResource($todo);
     }
