@@ -17,7 +17,7 @@ class ElasticService
             'multi_match' => [
                 'query' => $query,
                 'fuzziness' => 'AUTO',
-                'fields' => ['name^1', 'descriptions^1'],
+                'fields' => ['name^1', 'description^1'],
             ],
         ]);
 

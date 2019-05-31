@@ -20,6 +20,6 @@ class TodoSeeder extends Seeder
         ]);
 
         Todo::createIndex();
-        Todo::reindex();
+        Todo::addAllToIndex();
     }
 }
