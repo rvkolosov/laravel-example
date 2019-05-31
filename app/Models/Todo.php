@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
+use App\Indexes\TodoIndexConfigurator;
 use App\Traits\WithTrait;
 use App\User;
 use Elasticquent\ElasticquentTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Jedrzej\Searchable\SearchableTrait;
+use ScoutElastic\Searchable;
 
 /**
  * App\Models\Todo
@@ -44,7 +46,7 @@ use Jedrzej\Searchable\SearchableTrait;
  */
 class Todo extends Model
 {
-    use SoftDeletes, SearchableTrait, WithTrait, ElasticquentTrait;
+    use SoftDeletes, SearchableTrait, WithTrait, ElasticquentTrait, Searchable;
 
     protected $fillable = [
         'user_id',
@@ -53,24 +55,26 @@ class Todo extends Model
         'is_complete',
     ];
 
-    protected $mappingProperties = [
-        'name' => [
-            'type' => 'text',
-            'analyzer' => 'standard',
-        ],
-        'description' => [
-            'type' => 'text',
-            'analyzer' => 'standard',
-        ],
+    protected $indexConfigurator = TodoIndexConfigurator::class;
+
+    protected $searchRules = [
+        //
     ];
 
-    /**
-     * @return string
-     */
-    public function getIndexName()
-    {
-        return 'srv_fullstack_todos_index';
-    }
+    // Here you can specify a mapping for model fields
+    protected $mapping = [
+        'properties' => [
+            'name' => [
+                'type' => 'text',
+                // Also you can configure multi-fields, more details you can find here https://www.elastic.co/guide/en/elasticsearch/reference/current/multi-fields.html
+                'fields' => [
+                    'raw' => [
+                        'type' => 'keyword',
+                    ]
+                ]
+            ],
+        ]
+    ];
 
     /**
      * The attributes that should be mutated to dates.
