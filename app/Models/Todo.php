@@ -67,11 +67,10 @@ class Todo extends Model
             'name' => [
                 'type' => 'text',
                 // Also you can configure multi-fields, more details you can find here https://www.elastic.co/guide/en/elasticsearch/reference/current/multi-fields.html
-                'fields' => [
-                    'raw' => [
-                        'type' => 'keyword',
-                    ]
-                ]
+            ],
+            'description' => [
+                'type' => 'text',
+                // Also you can configure multi-fields, more details you can find here https://www.elastic.co/guide/en/elasticsearch/reference/current/multi-fields.html
             ],
         ]
     ];
