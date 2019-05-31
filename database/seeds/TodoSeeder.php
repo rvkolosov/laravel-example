@@ -15,8 +15,11 @@ class TodoSeeder extends Seeder
     {
         $user = User::all()->first();
 
-        factory(Todo::class, rand(5, 10))->create([
+        factory(Todo::class, rand(10, 20))->create([
             'user_id' => $user->id,
         ]);
+
+        Todo::createIndex();
+        Todo::reindex();
     }
 }
