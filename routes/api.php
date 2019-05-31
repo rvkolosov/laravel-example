@@ -32,3 +32,5 @@ Route::delete('roles/{role}/users/{user}', 'RoleUserController@delete')->name('r
 
 Route::post('permissions/{permission}/roles/{role}', 'PermissionRoleController@store')->name('permissions.roles.store');
 Route::delete('permissions/{permission}/roles/{role}', 'PermissionRoleController@delete')->name('permissions.roles.delete');
+
+Route::get('search/todos', 'SearchController@todos')->name('search.todos');

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Traits\WithTrait;
 use App\User;
+use Elasticquent\ElasticquentTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Jedrzej\Searchable\SearchableTrait;
@@ -43,7 +44,7 @@ use Jedrzej\Searchable\SearchableTrait;
  */
 class Todo extends Model
 {
-    use SoftDeletes, SearchableTrait, WithTrait;
+    use SoftDeletes, SearchableTrait, WithTrait, ElasticquentTrait;
 
     protected $fillable = [
         'user_id',
@@ -51,6 +52,25 @@ class Todo extends Model
         'description',
         'is_complete',
     ];
+
+    protected $mappingProperties = [
+        'name' => [
+            'type' => 'text',
+            'analyzer' => 'standard',
+        ],
+        'description' => [
+            'type' => 'text',
+            'analyzer' => 'standard',
+        ],
+    ];
+
+    /**
+     * @return string
+     */
+    public function getIndexName()
+    {
+        return 'srv_fullstack_todos_index';
+    }
 
     /**
      * The attributes that should be mutated to dates.
