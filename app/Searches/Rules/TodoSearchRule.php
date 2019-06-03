@@ -11,18 +11,16 @@ class TodoSearchRule extends SearchRule
      */
     public function buildHighlightPayload()
     {
-        /*
         return [
             'fields' => [
                 'name' => [
-                    'type' => 'text',
+                    'type' => 'plain',
                 ],
                 'description' => [
-                    'type' => 'text',
+                    'type' => 'plain',
                 ],
             ],
         ];
-        */
     }
 
     /**
@@ -35,7 +33,7 @@ class TodoSearchRule extends SearchRule
                 'multi_match' => [
                     'query' => $this->builder->query,
                     'fuzziness' => 'auto',
-                    'fields' => ['description^1'],
+                    //'fields' => ['description^1'],
                 ]
             ]
         ];
