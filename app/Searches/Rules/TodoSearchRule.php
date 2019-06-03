@@ -29,8 +29,8 @@ class TodoSearchRule extends SearchRule
     public function buildQueryPayload()
     {
         return [
-            'must' => [
-                'multi_match' => [
+            'should' => [
+                'wildcard' => [
                     'query' => $this->builder->query,
                     'fuzziness' => 'auto',
                     //'fields' => ['description^1'],
