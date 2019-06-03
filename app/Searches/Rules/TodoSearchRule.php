@@ -34,8 +34,7 @@ class TodoSearchRule extends SearchRule
             'must' => [
                 'multi_match' => [
                     'query' => $this->builder->query,
-                    'fuzziness' => 'AUTO',
-                    'fields' => ['name^1', 'description^1'],
+                    'fuzziness' => 'auto',
                 ]
             ]
         ];
