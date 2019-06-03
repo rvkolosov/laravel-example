@@ -35,7 +35,12 @@ class TodoSearchRule extends SearchRule
                 'multi_match' => [
                     'query' => $query,
                     'fuzziness' => 'auto',
-                    'fields' => ['name^1', 'description^1'],
+                    'fields' => [
+                        'name^3',
+                        'name.ngram',
+                        'description^3',
+                        'description.ngram',
+                    ],
                     //'analyze_wildcard' => true,
                 ]
             ],
