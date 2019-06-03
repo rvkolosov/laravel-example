@@ -62,7 +62,7 @@ class Todo extends Model
     ];
 
     // Here you can specify a mapping for model fields
-    /*
+    
     protected $mapping = [
         'properties' => [
             'name' => [
@@ -75,7 +75,7 @@ class Todo extends Model
             ],
         ]
     ];
-    */
+
 
     /**
      * The attributes that should be mutated to dates.
