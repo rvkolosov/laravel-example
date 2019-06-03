@@ -11,6 +11,7 @@ class TodoSearchRule extends SearchRule
      */
     public function buildHighlightPayload()
     {
+        /*
         return [
             'fields' => [
                 'name' => [
@@ -21,6 +22,7 @@ class TodoSearchRule extends SearchRule
                 ],
             ],
         ];
+        */
     }
 
     /**
