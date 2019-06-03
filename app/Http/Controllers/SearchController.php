@@ -20,6 +20,7 @@ class SearchController extends Controller
     public function todos(SearchTodoRequest $request)
     {
         return Todo::search($request->input('query'))
-            ->explain();
+            ->get();
+            //->explain();
     }
 }
