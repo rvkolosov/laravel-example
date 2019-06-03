@@ -31,13 +31,14 @@ class TodoSearchRule extends SearchRule
         $query = $this->builder->query;
 
         return [
-            'must' => [
+            'fuzzy' => [
                 'multi_match' => [
                     'query' => $query,
                     'fuzziness' => 'auto',
                     'fields' => ['name^1', 'description^1'],
                 ]
             ],
+            /*
             'should' => [
                 [
                     'wildcard' => [
@@ -52,6 +53,7 @@ class TodoSearchRule extends SearchRule
                     ],
                 ],
             ],
+            */
         ];
     }
 }
