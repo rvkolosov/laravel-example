@@ -47,7 +47,8 @@ class TodoSearchRule extends SearchRule
                         'description' => $this->builder->query,
                     ],
                 ],
-            ]
+            ],
+            'minimum_number_should_match' => 1,
         ];
     }
 }
