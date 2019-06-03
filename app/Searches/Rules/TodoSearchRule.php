@@ -36,7 +36,7 @@ class TodoSearchRule extends SearchRule
                     'query' => $query,
                     'fuzziness' => 'auto',
                     'fields' => ['name^1', 'description^1'],
-                    'analyze_wildcard' => true,
+                    //'analyze_wildcard' => true,
                 ]
             ],
             /*

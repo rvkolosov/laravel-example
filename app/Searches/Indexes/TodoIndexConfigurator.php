@@ -17,10 +17,21 @@ class TodoIndexConfigurator extends IndexConfigurator
     protected $settings = [
         'analysis' => [
             'analyzer' => [
-                'es_std' => [
-                    'type' => 'standard',
+                'standard' => [
+                    'tokenizer' => 'standard',
+                    'filter' => [
+                        'lowercase',
+                        'ngram_filter',
+                    ],
                 ]
-            ]
+            ],
+            'filter' => [
+                'ngram_filter' => [
+                    'type' => 'ngram',
+                    'min_gram' => 1,
+                    'max_gram' => 3,
+                ],
+            ],
         ]
     ];
 }
