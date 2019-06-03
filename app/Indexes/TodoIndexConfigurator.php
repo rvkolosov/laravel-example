@@ -9,7 +9,7 @@ class TodoIndexConfigurator extends IndexConfigurator
 {
     use Migratable;
 
-    protected $name = 'srv_fullstack_todos_index';
+    protected $name = 'srv_fullstack_todos_index_write';
 
     /**
      * @var array
