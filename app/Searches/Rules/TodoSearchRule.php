@@ -42,13 +42,13 @@ class TodoSearchRule extends SearchRule
                 [
                     'wildcard' => [
                         'name' => $query,
-                        'minimum_number_should_match' => 1,
+                        //'minimum_number_should_match' => 1,
                     ],
                 ],
                 [
                     'wildcard' => [
                         'description' => $query,
-                        'minimum_number_should_match' => 1,
+                        //'minimum_number_should_match' => 1,
                     ],
                 ],
             ],
