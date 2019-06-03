@@ -52,7 +52,7 @@ class TodoSearchRule extends SearchRule
                     ],
                 ],
             ],
-            'minimum_should_match' => '1',
+            'minimum_should_match' => '10%',
         ];
     }
 }
