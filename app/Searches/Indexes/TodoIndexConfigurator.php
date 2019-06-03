@@ -21,16 +21,9 @@ class TodoIndexConfigurator extends IndexConfigurator
                     'tokenizer' => 'standard',
                     'filter' => [
                         'lowercase',
-                        'ngram_filter',
+                        'ngram',
                     ],
                 ]
-            ],
-            'filter' => [
-                'ngram_filter' => [
-                    'type' => 'ngram',
-                    'min_gram' => 2,
-                    'max_gram' => 3,
-                ],
             ],
         ]
     ];
