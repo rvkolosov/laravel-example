@@ -28,8 +28,8 @@ class TodoIndexConfigurator extends IndexConfigurator
             'filter' => [
                 'ngram_filter' => [
                     'type' => 'ngram',
-                    'min_gram' => 1,
-                    'max_gram' => 1,
+                    'min_gram' => 2,
+                    'max_gram' => 3,
                 ],
             ],
         ]

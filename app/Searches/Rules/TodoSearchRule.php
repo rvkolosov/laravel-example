@@ -28,39 +28,19 @@ class TodoSearchRule extends SearchRule
      */
     public function buildQueryPayload()
     {
-        $query = $this->builder->query;
-
         return [
             'must' => [
                 'multi_match' => [
-                    'query' => $query,
+                    'query' => $this->builder->query,
                     'fuzziness' => 'auto',
                     'fields' => [
-                        'name^3',
+                        'name^1',
                         'name.ngram',
-                        'description^3',
+                        'description^1',
                         'description.ngram',
                     ],
-                    //'analyze_wildcard' => true,
                 ]
             ],
-            /*
-            'should' => [
-                [
-                    'wildcard' => [
-                        'name' => $query,
-                        //'minimum_number_should_match' => 1,
-                    ],
-                ],
-                [
-                    'wildcard' => [
-                        'description' => $query,
-                        //'minimum_number_should_match' => 1,
-                    ],
-                ],
-            ],
-            */
-            //'minimum_should_match' => '10%',
         ];
     }
 }
