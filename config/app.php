@@ -201,11 +201,6 @@ return [
          */
         L5Swagger\L5SwaggerServiceProvider::class,
 
-
-        /*
-         * Elasticquent
-         */
-        Elasticquent\ElasticquentServiceProvider::class,
     ],
 
     /*

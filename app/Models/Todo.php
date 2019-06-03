@@ -5,7 +5,6 @@ namespace App\Models;
 use App\Indexes\TodoIndexConfigurator;
 use App\Traits\WithTrait;
 use App\User;
-use Elasticquent\ElasticquentTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Jedrzej\Searchable\SearchableTrait;

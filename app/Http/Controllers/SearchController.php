@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Search\SearchTodoRequest;
 use App\Models\Todo;
-use App\Services\ElasticService;
 use Illuminate\Http\Request;
 
 class SearchController extends Controller
@@ -23,6 +22,5 @@ class SearchController extends Controller
         return Todo::search('*')
             ->where('description', $request->input('query'))
             ->get();
-        //return ElasticService::search($request->input('query'));
     }
 }
