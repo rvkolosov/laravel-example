@@ -15,11 +15,11 @@ class SearchController extends Controller
 
     /**
      * @param SearchTodoRequest $request
-     * @return int
+     * @return array
      */
     public function todos(SearchTodoRequest $request)
     {
         return Todo::search($request->input('query'))
-            ->get();
+            ->explain();
     }
 }
