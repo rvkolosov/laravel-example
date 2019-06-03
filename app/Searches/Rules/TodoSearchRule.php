@@ -34,7 +34,7 @@ class TodoSearchRule extends SearchRule
                     'query' => $this->builder->query,
                     'fuzziness' => '1',
                     'fields' => [
-                        'name^2',
+                        'name^3',
                         //'name.ngram',
                         'description',
                         //'description.ngram',
