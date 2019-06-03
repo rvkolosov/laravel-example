@@ -30,11 +30,20 @@ class TodoSearchRule extends SearchRule
     {
         return [
             'should' => [
-                'wildcard' => [
-                    'query' => $this->builder->query,
-                    'fuzziness' => 'auto',
-                    //'fields' => ['description^1'],
-                ]
+                [
+                    'wildcard' => [
+                        'name' => $this->builder->query,
+                        'fuzziness' => 'auto',
+                        //'fields' => ['description^1'],
+                    ],
+                ],
+                [
+                    'wildcard' => [
+                        'description' => $this->builder->query,
+                        'fuzziness' => 'auto',
+                        //'fields' => ['description^1'],
+                    ],
+                ],
             ]
         ];
     }
