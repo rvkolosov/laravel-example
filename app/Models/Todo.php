@@ -62,18 +62,20 @@ class Todo extends Model
     ];
 
     // Here you can specify a mapping for model fields
+    /*
     protected $mapping = [
         'properties' => [
             'name' => [
-                'type' => '_doc',
+                'type' => 'text',
                 // Also you can configure multi-fields, more details you can find here https://www.elastic.co/guide/en/elasticsearch/reference/current/multi-fields.html
             ],
             'description' => [
-                'type' => '_doc',
+                'type' => 'text',
                 // Also you can configure multi-fields, more details you can find here https://www.elastic.co/guide/en/elasticsearch/reference/current/multi-fields.html
             ],
         ]
     ];
+    */
 
     /**
      * The attributes that should be mutated to dates.
