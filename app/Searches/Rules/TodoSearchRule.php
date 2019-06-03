@@ -32,9 +32,7 @@ class TodoSearchRule extends SearchRule
             'must' => [
                 'multi_match' => [
                     'query' => $this->builder->query,
-                    'fuzziness' => 'auto',
-                    'type' => 'most_fields',
-                    'prefix_length' => 1,
+                    'fuzziness' => '1',
                     'fields' => [
                         'name^2',
                         //'name.ngram',
