@@ -20,7 +20,7 @@ class SearchController extends Controller
      */
     public function todos(SearchTodoRequest $request)
     {
-        return Todo::search('description')
+        return Todo::search('*')
             ->where('description', $request->input('query'))
             ->get();
         //return ElasticService::search($request->input('query'));
