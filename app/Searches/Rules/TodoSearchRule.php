@@ -36,8 +36,10 @@ class TodoSearchRule extends SearchRule
                     'query' => $query,
                     'fuzziness' => 'auto',
                     'fields' => ['name^1', 'description^1'],
+                    'analyze_wildcard' => true,
                 ]
             ],
+            /*
             'should' => [
                 [
                     'wildcard' => [
@@ -52,7 +54,8 @@ class TodoSearchRule extends SearchRule
                     ],
                 ],
             ],
-            'minimum_should_match' => '10%',
+            */
+            //'minimum_should_match' => '10%',
         ];
     }
 }
