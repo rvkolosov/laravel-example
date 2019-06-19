@@ -19,7 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::post('login', function () {
-    return redirect('login');
+    return redirect()->route('login');
 });
 
 Route::post('auth/login', 'Auth\LoginController@login')->name('auth.login');
