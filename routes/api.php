@@ -17,15 +17,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return response()->json(['user' => $request->user()]);
 });
 
-
-Route::post('login', function () {
-    return redirect('login');
-});
-
-Route::post('auth/login', 'Auth\LoginController@login')->name('auth.login');
-Route::post('auth/register', 'Auth\RegisterController@register')->name('auth.register');
+Route::post('auth/login', 'AuthController@login')->name('auth.login');
+Route::post('auth/register', 'AuthController@register')->name('auth.register');
 Route::post('auth/change', 'AuthController@change')->name('auth.change');
-Route::post('auth/logout', 'Auth\LoginController@logout')->name('auth.logout');
+Route::post('auth/logout', 'AuthController@logout')->name('auth.logout');
 
 Route::apiResource('roles', 'RoleController');
 Route::apiResource('permissions', 'PermissionController');
