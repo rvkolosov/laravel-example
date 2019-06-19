@@ -17,7 +17,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return response()->json(['user' => $request->user()]);
 });
 
-Auth::routes();
+
+Route::post('login', function (Request $request) {
+    redirect('login');
+});
 
 Route::post('auth/login', 'Auth\LoginController@login')->name('auth.login');
 Route::post('auth/register', 'Auth\RegisterController@register')->name('auth.register');
