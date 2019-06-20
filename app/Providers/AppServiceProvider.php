@@ -2,8 +2,6 @@
 
 namespace App\Providers;
 
-use App\Observers\UserObserver;
-use App\User;
 use Redis;
 use Illuminate\Support\ServiceProvider;
 
@@ -26,6 +24,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        User::observe(UserObserver::class);
+        //
     }
 }

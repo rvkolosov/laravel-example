@@ -10,12 +10,6 @@ class TmpController extends Controller
 {
     public function index()
     {
-        $user = User::find(10);
 
-        $role = Role::whereName('user')->first();
-
-        $user->roles()->attach($role->id);
-
-        return $user->roles;
     }
 }
