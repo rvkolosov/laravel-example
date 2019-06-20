@@ -12,8 +12,12 @@ class UserController extends Controller
         $this->middleware('auth:api');
     }
 
+    /**
+     * @param Request $request
+     * @return mixed
+     */
     public function user(Request $request)
     {
-        return response()->json(['user' => $request->user()]);
+        return $request->user();
     }
 }
