@@ -22,8 +22,26 @@ class TodoIndexConfigurator extends IndexConfigurator
                     'filter' => [
                         'lowercase',
                         'ngram',
+                        'my_phonetic_english',
+                        'my_phonetic_cyrillic',
                     ],
                 ]
+            ],
+            'filter' => [
+                'my_phonetic_english' => [
+                    'type' => 'phonetic',
+                    'encoder' => 'beider_morse',
+                    'rule_type' => 'approx',
+                    'name_type' => 'generic',
+                    'languageset' => ['english'],
+                ],
+                'my_phonetic_cyrillic' => [
+                    'type' => 'phonetic',
+                    'encoder' => 'beider_morse',
+                    'rule_type' => 'approx',
+                    'name_type' => 'generic',
+                    'languageset' => ['cyrillic'],
+                ],
             ],
         ]
     ];
