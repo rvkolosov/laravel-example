@@ -21,14 +21,26 @@ class TodoIndexConfigurator extends IndexConfigurator
                     'tokenizer' => 'standard',
                     'filter' => [
                         'lowercase',
-                        'my_latin_transform',
+                        'ngram',
+                        'my_phonetic_english',
+                        'my_phonetic_cyrillic',
                     ],
                 ]
             ],
             'filter' => [
-                'my_latin_transform' => [
-                    'type' => 'icu_transform',
-                    'id' => 'Any-Latin; NFD; [:Nonspacing Mark:] Remove; NFC',
+                'my_phonetic_english' => [
+                    'type' => 'phonetic',
+                    'encoder' => 'beider_morse',
+                    'rule_type' => 'approx',
+                    'name_type' => 'generic',
+                    'languageset' => ['english'],
+                ],
+                'my_phonetic_cyrillic' => [
+                    'type' => 'phonetic',
+                    'encoder' => 'beider_morse',
+                    'rule_type' => 'approx',
+                    'name_type' => 'generic',
+                    'languageset' => ['cyrillic'],
                 ],
             ],
         ]
