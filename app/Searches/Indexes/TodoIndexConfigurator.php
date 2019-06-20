@@ -27,7 +27,7 @@ class TodoIndexConfigurator extends IndexConfigurator
                 ]
             ],
             'filter' => [
-                'my_transform' => [
+                'my_latin_transform' => [
                     'type' => 'icu_transform',
                     'id' => 'Cyrillic-Latin; NFD; [:Nonspacing Mark:] Remove; NFC',
                 ],
