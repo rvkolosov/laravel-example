@@ -22,14 +22,14 @@ class TodoIndexConfigurator extends IndexConfigurator
                     'filter' => [
                         'lowercase',
                         'ngram',
-                        'my_transform',
+                        'my_latin_transform',
                     ],
                 ]
             ],
             'filter' => [
                 'my_transform' => [
                     'type' => 'icu_transform',
-                    'id' => 'Latin-Cyrillic; NFD; [:Nonspacing Mark:] Remove; NFC',
+                    'id' => 'Cyrillic-Latin; NFD; [:Nonspacing Mark:] Remove; NFC',
                 ],
             ],
         ]
