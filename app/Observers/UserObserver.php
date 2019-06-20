@@ -17,7 +17,7 @@ class UserObserver
     {
         $role = Role::whereName('user')->first();
 
-        $user->roles()->attach($role);
+        $user->roles()->attach($role->id);
     }
 
     /**
