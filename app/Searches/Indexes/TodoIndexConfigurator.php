@@ -21,7 +21,6 @@ class TodoIndexConfigurator extends IndexConfigurator
                     'tokenizer' => 'standard',
                     'filter' => [
                         'lowercase',
-                        'ngram',
                         'my_latin_transform',
                     ],
                 ]
