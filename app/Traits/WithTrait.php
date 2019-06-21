@@ -36,7 +36,7 @@ trait WithTrait
             {
                 $this->hasRelations($relations);
 
-                array_push($tmp, $relations);
+                $tmp[] = $relations;
             }
 
             $this->load($tmp);
