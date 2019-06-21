@@ -7,11 +7,11 @@ namespace App\Models;
 
 use App\Searches\Indexes\TodoIndexConfigurator;
 use App\Searches\Rules\TodoSearchRule;
-use App\Traits\WithTrait;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Jedrzej\Searchable\SearchableTrait;
+use RVKolosov\LaravelWithTrait\WithTrait;
 use ScoutElastic\Searchable;
 
 /**

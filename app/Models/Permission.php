@@ -2,10 +2,10 @@
 
 namespace App\Models;
 
-use App\Traits\WithTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Jedrzej\Searchable\SearchableTrait;
+use RVKolosov\LaravelWithTrait\WithTrait;
 
 /**
  * App\Models\Permission

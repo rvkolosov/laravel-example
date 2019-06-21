@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e945be2305cf44edd8760e58574ea61d",
+    "content-hash": "8918e928956e8b9566042ed3fa002c0d",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4049,6 +4049,43 @@
             "time": "2019-01-07T21:25:54+00:00"
         },
         {
+            "name": "rvkolosov/laravel-withtrait",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rvkolosov/laravel-withtrait.git",
+                "reference": "47545f56543937dfb358d3623422292c24e8702b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rvkolosov/laravel-withtrait/zipball/47545f56543937dfb358d3623422292c24e8702b",
+                "reference": "47545f56543937dfb358d3623422292c24e8702b",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/container": "^5.8",
+                "illuminate/database": "^5.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "RVKolosov\\LaravelWithTrait\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Roman V. Kolosov",
+                    "email": "roman.kolosov12@yandex.ru"
+                }
+            ],
+            "description": "WithTrait for dynamic load relations in Laravel Model.",
+            "time": "2019-06-21T13:15:15+00:00"
+        },
+        {
             "name": "seld/jsonlint",
             "version": "1.7.1",
             "source": {
@@ -7869,7 +7906,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "rvkolosov/laravel-withtrait": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
