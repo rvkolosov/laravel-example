@@ -14,9 +14,12 @@ trait WithTrait
         {
             foreach (request()->input('with') as $relations)
             {
-                $this->hasRelations($relations);
+                if (strlen($relations))
+                {
+                    $this->hasRelations($relations);
 
-                $query->with($relations);
+                    $query->with($relations);
+                }
             }
         }
 
@@ -34,9 +37,12 @@ trait WithTrait
 
             foreach (request()->input('with') as $relations)
             {
-                $this->hasRelations($relations);
+                if (strlen($relations))
+                {
+                    $this->hasRelations($relations);
 
-                $tmp[] = $relations;
+                    $tmp[] = $relations;
+                }
             }
 
             $this->load($tmp);
