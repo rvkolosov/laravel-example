@@ -5,34 +5,18 @@ namespace App\Http\Controllers;
 use App\Models\Role;
 use App\User;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+use App\Models\Todo;
 
 class TmpController extends Controller
 {
 
     public function index(Request $request)
     {
-        $test = [];
+        dump($request->input('test'));
 
-        $tmp = collect();
+        $tmp = collect($request->input('test'))->forget('lang');
 
-        $roles = Role::all();
-
-        foreach ($roles as $role) {
-            $role->load('');
-        }
-
-        $user = User::find(1);
-
-        $tmp->where('');
-
-        Role::whereName('admin')->get();
-
-
-
-        $this->validate($user, [
-            '' => '',
-        ]);
-
-        return $roles;
+        dump($tmp);
     }
 }

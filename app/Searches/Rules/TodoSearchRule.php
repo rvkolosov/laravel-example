@@ -33,10 +33,10 @@ class TodoSearchRule extends SearchRule
                 'multi_match' => [
                     'query' => $this->builder->query,
                     'fuzziness' => 'auto',
-                    'analyzer' => 'standard',
+                    //'analyzer' => 'standard',
                     'type' => 'most_fields',
                     'fields' => [
-                        'name^2',
+                        //'name^2',
                         'description',
                     ],
                 ]
