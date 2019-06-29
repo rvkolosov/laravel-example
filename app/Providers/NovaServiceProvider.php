@@ -6,6 +6,8 @@ use Laravel\Nova\Nova;
 use Laravel\Nova\Cards\Help;
 use Illuminate\Support\Facades\Gate;
 use Laravel\Nova\NovaApplicationServiceProvider;
+use GeneaLabs\NovaTelescope\NovaTelescope;
+use GeneaLabs\NovaHorizon\NovaHorizon;
 
 class NovaServiceProvider extends NovaApplicationServiceProvider
 {
@@ -65,7 +67,11 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
      */
     public function tools()
     {
-        return [];
+        return [
+            new NovaTelescope,
+            new NovaHorizon,
+            new \PhpJunior\NovaLogViewer\Tool(),
+        ];
     }
 
     /**

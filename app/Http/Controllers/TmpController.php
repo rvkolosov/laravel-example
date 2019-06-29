@@ -17,6 +17,6 @@ class TmpController extends Controller
 
         $tmp = collect($request->input('test'))->forget('lang');
 
-        dump($tmp);
+        dump('asdasdasd');
     }
 }

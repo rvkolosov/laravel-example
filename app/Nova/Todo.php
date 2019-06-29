@@ -4,21 +4,20 @@ namespace App\Nova;
 
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
+use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Gravatar;
-use Laravel\Nova\Fields\Password;
-use Laravel\Nova\Fields\BelongsToMany;
-use Laravel\Nova\Fields\HasMany;
-use Yassi\NestedForm\NestedForm;
+use Laravel\Nova\Fields\Boolean;
+use Laravel\Nova\Fields\DateTime;
+use Laravel\Nova\Fields\BelongsTo;
 
-class User extends Resource
+class Todo extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = 'App\\User';
+    public static $model = 'App\Models\Todo';
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -33,7 +32,7 @@ class User extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'name', 'email',
+        'id', 'name', 'description',
     ];
 
     /**
@@ -45,31 +44,30 @@ class User extends Resource
     public function fields(Request $request)
     {
         return [
-            ID::make()->sortable(),
-
-            Gravatar::make(),
+            ID::make()
+                ->sortable(),
 
             Text::make('Name')
+                ->sortable(),
+
+            Text::make('Description')
+                ->sortable(),
+
+            Boolean::make('Is Complete'),
+
+            DateTime::make('Created At')
                 ->sortable()
-                ->rules('required', 'max:255'),
+                ->format('HH:mm DD MMM YYYY')
+                ->hideWhenCreating()
+                ->hideWhenUpdating(),
 
-            Text::make('Email')
+            DateTime::make('Updated At')
                 ->sortable()
-                ->rules('required', 'email', 'max:254')
-                ->creationRules('unique:users,email')
-                ->updateRules('unique:users,email,{{resourceId}}'),
+                ->format('HH:mm DD MMM YYYY')
+                ->hideWhenCreating()
+                ->hideWhenUpdating(),
 
-            Password::make('Password')
-                ->onlyOnForms()
-                ->creationRules('required', 'string', 'min:8')
-                ->updateRules('nullable', 'string', 'min:8'),
-
-            BelongsToMany::make('Roles'),
-
-            HasMany::make('Todos'),
-
-            NestedForm::make('Todos')
-                ->heading('{{name}}'),
+            BelongsTo::make('User'),
         ];
     }
 
@@ -116,4 +114,5 @@ class User extends Resource
     {
         return [];
     }
+    
 }

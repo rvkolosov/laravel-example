@@ -4,8 +4,130 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "2ed338e67c195709ca0e627f90feba8d",
+    "content-hash": "ce5c3b4480917c45efdcdbe8258d91ec",
     "packages": [
+        {
+            "name": "arcanedev/log-viewer",
+            "version": "4.7.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ARCANEDEV/LogViewer.git",
+                "reference": "9ae1d23f67d5d1c7490c69636b34303457fb0af3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ARCANEDEV/LogViewer/zipball/9ae1d23f67d5d1c7490c69636b34303457fb0af3",
+                "reference": "9ae1d23f67d5d1c7490c69636b34303457fb0af3",
+                "shasum": ""
+            },
+            "require": {
+                "arcanedev/support": "~4.5.0",
+                "php": ">=7.1.3",
+                "psr/log": "~1.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "~1.0",
+                "orchestra/testbench": "~3.8.0",
+                "phpunit/phpcov": "~5.0|~6.0",
+                "phpunit/phpunit": "~7.0|~8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Arcanedev\\LogViewer\\LogViewerServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Arcanedev\\LogViewer\\": "src/"
+                },
+                "files": [
+                    "constants.php",
+                    "helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "ARCANEDEV",
+                    "email": "arcanedev.maroc@gmail.com",
+                    "homepage": "https://github.com/arcanedev-maroc",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Provides a Log Viewer for Laravel 5",
+            "homepage": "https://github.com/ARCANEDEV/LogViewer",
+            "keywords": [
+                "arcanedev",
+                "arcanesoft",
+                "laravel",
+                "log",
+                "log viewer",
+                "log-viewer",
+                "logviewer"
+            ],
+            "time": "2019-04-13T10:01:41+00:00"
+        },
+        {
+            "name": "arcanedev/support",
+            "version": "4.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ARCANEDEV/Support.git",
+                "reference": "2bb6e901404a12caa440520676b6507569d20715"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ARCANEDEV/Support/zipball/2bb6e901404a12caa440520676b6507569d20715",
+                "reference": "2bb6e901404a12caa440520676b6507569d20715",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/filesystem": "~5.8.0",
+                "illuminate/support": "~5.8.0",
+                "php": ">=7.1.3"
+            },
+            "require-dev": {
+                "orchestra/testbench": "~3.8.0",
+                "phpunit/phpcov": "~5.0|~6.0",
+                "phpunit/phpunit": "~7.0|~8.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Arcanedev\\Support\\": "src/"
+                },
+                "files": [
+                    "constants.php",
+                    "helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "ARCANEDEV",
+                    "email": "arcanedev.maroc@gmail.com",
+                    "homepage": "https://github.com/arcanedev-maroc"
+                }
+            ],
+            "description": "ARCANEDEV Support Helpers",
+            "homepage": "https://github.com/ARCANEDEV/Support",
+            "keywords": [
+                "arcanedev",
+                "arcanesoft",
+                "laravel",
+                "support"
+            ],
+            "time": "2019-02-27T18:33:30+00:00"
+        },
         {
             "name": "asm89/stack-cors",
             "version": "1.2.0",
@@ -1608,6 +1730,142 @@
             ],
             "description": "Pretty routes for Laravel 5.",
             "time": "2019-02-28T14:02:03+00:00"
+        },
+        {
+            "name": "genealabs/nova-horizon",
+            "version": "0.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/GeneaLabs/nova-horizon.git",
+                "reference": "6719007159628afbc05f7004bd365a58aed428be"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/GeneaLabs/nova-horizon/zipball/6719007159628afbc05f7004bd365a58aed428be",
+                "reference": "6719007159628afbc05f7004bd365a58aed428be",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "5.8.*",
+                "laravel/horizon": "*",
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "GeneaLabs\\NovaHorizon\\ToolServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GeneaLabs\\NovaHorizon\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A Laravel Nova tool.",
+            "keywords": [
+                "laravel",
+                "nova"
+            ],
+            "time": "2019-06-04T15:58:51+00:00"
+        },
+        {
+            "name": "genealabs/nova-telescope",
+            "version": "0.1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/GeneaLabs/nova-telescope.git",
+                "reference": "1c7c442d7186c0c20d1224707818c25de32266c2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/GeneaLabs/nova-telescope/zipball/1c7c442d7186c0c20d1224707818c25de32266c2",
+                "reference": "1c7c442d7186c0c20d1224707818c25de32266c2",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "5.8.*",
+                "laravel/telescope": "*",
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "GeneaLabs\\NovaTelescope\\ToolServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GeneaLabs\\NovaTelescope\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A Laravel Nova tool.",
+            "keywords": [
+                "laravel",
+                "nova"
+            ],
+            "time": "2019-06-04T15:59:40+00:00"
+        },
+        {
+            "name": "gregoriohc/laravel-nova-theme-responsive",
+            "version": "v0.6.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/gregoriohc/laravel-nova-theme-responsive.git",
+                "reference": "e621562f0a05ee2d9b4cac404f005bec0b05e067"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/gregoriohc/laravel-nova-theme-responsive/zipball/e621562f0a05ee2d9b4cac404f005bec0b05e067",
+                "reference": "e621562f0a05ee2d9b4cac404f005bec0b05e067",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Gregoriohc\\LaravelNovaThemeResponsive\\ThemeServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Gregoriohc\\LaravelNovaThemeResponsive\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Gregorio Hernández Caso",
+                    "email": "gregoriohc@gmail.com",
+                    "homepage": "https://github.com/gregoriohc",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A Laravel Nova responsive theme.",
+            "homepage": "https://github.com/gregoriohc/laravel-nova-theme-responsive",
+            "keywords": [
+                "laravel",
+                "nova"
+            ],
+            "time": "2019-06-04T08:05:40+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -3383,6 +3641,58 @@
                 "side-channel resistant"
             ],
             "time": "2019-05-13T16:04:50+00:00"
+        },
+        {
+            "name": "php-junior/nova-logs",
+            "version": "v1.0.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PHPJunior/nova-logs.git",
+                "reference": "e5bc157bbbe680ff6537c9a166a0d0629e4f4c73"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PHPJunior/nova-logs/zipball/e5bc157bbbe680ff6537c9a166a0d0629e4f4c73",
+                "reference": "e5bc157bbbe680ff6537c9a166a0d0629e4f4c73",
+                "shasum": ""
+            },
+            "require": {
+                "arcanedev/log-viewer": "*",
+                "php": "^7.1.3"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^3.6",
+                "phpunit/phpunit": "7.1"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "PhpJunior\\NovaLogViewer\\ToolServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "PhpJunior\\NovaLogViewer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nyi Nyi Lwin",
+                    "email": "nyinyilwin1992@hotmail.com"
+                }
+            ],
+            "description": "Provides a Log Viewer for Laravel Nova",
+            "keywords": [
+                "laravel",
+                "nova"
+            ],
+            "time": "2018-11-02T07:46:39+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -6002,6 +6312,53 @@
                 "environment"
             ],
             "time": "2019-06-15T22:40:20+00:00"
+        },
+        {
+            "name": "yassi/nova-nested-form",
+            "version": "v2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yassipad/laravel-nova-nested-form.git",
+                "reference": "01aaa9751ffb32cfad82643851ef88732d631b26"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yassipad/laravel-nova-nested-form/zipball/01aaa9751ffb32cfad82643851ef88732d631b26",
+                "reference": "01aaa9751ffb32cfad82643851ef88732d631b26",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "require-dev": {
+                "laravel/nova": "^1.2"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Yassi\\NestedForm\\FieldServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Yassi\\NestedForm\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A Laravel Nova package that allows you to create/update/delete nested related fields from a parent form.",
+            "keywords": [
+                "form",
+                "laravel",
+                "nested",
+                "nova",
+                "relationship"
+            ],
+            "time": "2019-05-09T08:55:11+00:00"
         },
         {
             "name": "zendframework/zend-diactoros",
