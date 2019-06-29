@@ -13,3 +13,4 @@ yarn-error.log
 /storage/api-docs
 /public/koolreport_assets
 /nova/*
+*.sql
