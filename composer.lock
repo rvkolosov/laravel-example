@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "ce5c3b4480917c45efdcdbe8258d91ec",
+    "content-hash": "4fb598d162d4b9845b2ca4ffadc04748",
     "packages": [
         {
             "name": "arcanedev/log-viewer",
@@ -182,20 +182,20 @@
         },
         {
             "name": "babenkoivan/scout-elasticsearch-driver",
-            "version": "v3.11.0",
+            "version": "v3.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/babenkoivan/scout-elasticsearch-driver.git",
-                "reference": "d57cbc08411608c8155be0e0be950f3117ccce44"
+                "reference": "c3e106aa6deac0bbcc1cd1e0c2c3aa5ef47b7cda"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/babenkoivan/scout-elasticsearch-driver/zipball/d57cbc08411608c8155be0e0be950f3117ccce44",
-                "reference": "d57cbc08411608c8155be0e0be950f3117ccce44",
+                "url": "https://api.github.com/repos/babenkoivan/scout-elasticsearch-driver/zipball/c3e106aa6deac0bbcc1cd1e0c2c3aa5ef47b7cda",
+                "reference": "c3e106aa6deac0bbcc1cd1e0c2c3aa5ef47b7cda",
                 "shasum": ""
             },
             "require": {
-                "elasticsearch/elasticsearch": "^7.0",
+                "elasticsearch/elasticsearch": "^6.0",
                 "laravel/scout": "^7.0",
                 "php": "^7.1.3"
             },
@@ -239,7 +239,7 @@
                 "scout",
                 "search"
             ],
-            "time": "2019-06-23T15:53:59+00:00"
+            "time": "2019-06-28T15:38:11+00:00"
         },
         {
             "name": "barryvdh/laravel-cors",
@@ -913,6 +913,47 @@
             "time": "2018-07-24T23:27:56+00:00"
         },
         {
+            "name": "dillingham/nova-attach-many",
+            "version": "1.0.11",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dillingham/nova-attach-many.git",
+                "reference": "66e0b01e1be3aecbbfc72e7df81b45bf7fb9674a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dillingham/nova-attach-many/zipball/66e0b01e1be3aecbbfc72e7df81b45bf7fb9674a",
+                "reference": "66e0b01e1be3aecbbfc72e7df81b45bf7fb9674a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "NovaAttachMany\\Providers\\FieldServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "NovaAttachMany\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Attach Many Nova field",
+            "keywords": [
+                "laravel",
+                "nova"
+            ],
+            "time": "2019-03-22T13:17:50+00:00"
+        },
+        {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "0.1",
             "source": {
@@ -1484,33 +1525,33 @@
         },
         {
             "name": "elasticsearch/elasticsearch",
-            "version": "v7.0.1",
+            "version": "v6.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/elastic/elasticsearch-php.git",
-                "reference": "53b4cec63473b967d88fec28c4fe81afcb366f43"
+                "reference": "7be453dd36d1b141b779f2cb956715f8e04ac2f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/elastic/elasticsearch-php/zipball/53b4cec63473b967d88fec28c4fe81afcb366f43",
-                "reference": "53b4cec63473b967d88fec28c4fe81afcb366f43",
+                "url": "https://api.github.com/repos/elastic/elasticsearch-php/zipball/7be453dd36d1b141b779f2cb956715f8e04ac2f4",
+                "reference": "7be453dd36d1b141b779f2cb956715f8e04ac2f4",
                 "shasum": ""
             },
             "require": {
                 "ext-json": ">=1.3.7",
                 "guzzlehttp/ringphp": "~1.0",
-                "php": "^7.1",
+                "php": "^7.0",
                 "psr/log": "~1.0"
             },
             "require-dev": {
-                "cpliakas/git-wrapper": "~2.0",
-                "doctrine/inflector": "^1.3",
+                "cpliakas/git-wrapper": "^1.7 || ^2.1",
+                "doctrine/inflector": "^1.1",
                 "mockery/mockery": "^1.2",
-                "phpstan/phpstan-shim": "^0.11",
-                "phpunit/phpunit": "^7.5",
+                "phpstan/phpstan-shim": "^0.9 || ^0.11",
+                "phpunit/phpunit": "^5.7 || ^6.5",
                 "squizlabs/php_codesniffer": "^3.4",
-                "symfony/finder": "~4.0",
-                "symfony/yaml": "~4.0"
+                "symfony/finder": "^2.8",
+                "symfony/yaml": "^2.8"
             },
             "suggest": {
                 "ext-curl": "*",
@@ -1540,7 +1581,7 @@
                 "elasticsearch",
                 "search"
             ],
-            "time": "2019-06-17T14:42:20+00:00"
+            "time": "2019-05-20T14:15:55+00:00"
         },
         {
             "name": "erusev/parsedown",
@@ -1985,33 +2026,37 @@
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "1.5.2",
+            "version": "1.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "9f83dded91781a01c63574e387eaa769be769115"
+                "reference": "239400de7a173fe9901b9ac7c06497751f00727a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/9f83dded91781a01c63574e387eaa769be769115",
-                "reference": "9f83dded91781a01c63574e387eaa769be769115",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/239400de7a173fe9901b9ac7c06497751f00727a",
+                "reference": "239400de7a173fe9901b9ac7c06497751f00727a",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.4.0",
                 "psr/http-message": "~1.0",
-                "ralouphie/getallheaders": "^2.0.5"
+                "ralouphie/getallheaders": "^2.0.5 || ^3.0.0"
             },
             "provide": {
                 "psr/http-message-implementation": "1.0"
             },
             "require-dev": {
+                "ext-zlib": "*",
                 "phpunit/phpunit": "~4.8.36 || ^5.7.27 || ^6.5.8"
+            },
+            "suggest": {
+                "zendframework/zend-httphandlerrunner": "Emit PSR-7 responses"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.5-dev"
+                    "dev-master": "1.6-dev"
                 }
             },
             "autoload": {
@@ -2048,7 +2093,7 @@
                 "uri",
                 "url"
             ],
-            "time": "2018-12-04T20:46:45+00:00"
+            "time": "2019-07-01T23:21:34+00:00"
         },
         {
             "name": "guzzlehttp/ringphp",
@@ -2363,65 +2408,17 @@
             "time": "2019-01-14T23:55:14+00:00"
         },
         {
-            "name": "koolphp/koolreport",
-            "version": "3.25.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/koolphp/koolreport.git",
-                "reference": "1ffa6c481535eac59df0852a6eeaa9ff87170e98"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/koolphp/koolreport/zipball/1ffa6c481535eac59df0852a6eeaa9ff87170e98",
-                "reference": "1ffa6c481535eac59df0852a6eeaa9ff87170e98",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.4"
-            },
-            "require-dev": {
-                "codeception/codeception": "^2.4",
-                "squizlabs/php_codesniffer": "^3.3"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "autoload.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "KoolPHP Inc",
-                    "homepage": "https://www.koolphp.net"
-                }
-            ],
-            "description": "An Open Source PHP Reporting Framework for easier and faster report delivery.",
-            "homepage": "https://www.koolreport.com",
-            "keywords": [
-                "PHP Reporting Framework",
-                "PHP Reporting Tools",
-                "charts and graphs",
-                "data processing",
-                "data visualization"
-            ],
-            "time": "2019-02-15T07:54:19+00:00"
-        },
-        {
             "name": "laravel/framework",
-            "version": "v5.8.26",
+            "version": "v5.8.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "1d8ec9afdedc79314c18715056b8143d7e1fac31"
+                "reference": "341fb54bea9693cada2a5b8d398621a57f82862d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/1d8ec9afdedc79314c18715056b8143d7e1fac31",
-                "reference": "1d8ec9afdedc79314c18715056b8143d7e1fac31",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/341fb54bea9693cada2a5b8d398621a57f82862d",
+                "reference": "341fb54bea9693cada2a5b8d398621a57f82862d",
                 "shasum": ""
             },
             "require": {
@@ -2555,20 +2552,20 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2019-06-25T16:20:51+00:00"
+            "time": "2019-07-09T14:00:02+00:00"
         },
         {
             "name": "laravel/horizon",
-            "version": "v3.2.4",
+            "version": "v3.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/horizon.git",
-                "reference": "dab98e62eb3604e96dc5c7afcbb974999f187d4e"
+                "reference": "f65d71bb2f2d14442b76c7d34ffe3854776ae6ef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/horizon/zipball/dab98e62eb3604e96dc5c7afcbb974999f187d4e",
-                "reference": "dab98e62eb3604e96dc5c7afcbb974999f187d4e",
+                "url": "https://api.github.com/repos/laravel/horizon/zipball/f65d71bb2f2d14442b76c7d34ffe3854776ae6ef",
+                "reference": "f65d71bb2f2d14442b76c7d34ffe3854776ae6ef",
                 "shasum": ""
             },
             "require": {
@@ -2624,7 +2621,7 @@
                 "laravel",
                 "queue"
             ],
-            "time": "2019-06-25T15:20:03+00:00"
+            "time": "2019-07-11T21:11:11+00:00"
         },
         {
             "name": "laravel/nova",
@@ -2692,16 +2689,16 @@
         },
         {
             "name": "laravel/passport",
-            "version": "v7.3.0",
+            "version": "v7.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/passport.git",
-                "reference": "758e143052f0a353df8dff9349f84601579e457d"
+                "reference": "a738f62b72b9982c043c9d52e5d0438f999c630a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/passport/zipball/758e143052f0a353df8dff9349f84601579e457d",
-                "reference": "758e143052f0a353df8dff9349f84601579e457d",
+                "url": "https://api.github.com/repos/laravel/passport/zipball/a738f62b72b9982c043c9d52e5d0438f999c630a",
+                "reference": "a738f62b72b9982c043c9d52e5d0438f999c630a",
                 "shasum": ""
             },
             "require": {
@@ -2758,7 +2755,7 @@
                 "oauth",
                 "passport"
             ],
-            "time": "2019-05-28T16:06:20+00:00"
+            "time": "2019-07-11T21:16:43+00:00"
         },
         {
             "name": "laravel/scout",
@@ -3456,16 +3453,16 @@
         },
         {
             "name": "opis/closure",
-            "version": "3.3.0",
+            "version": "3.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/opis/closure.git",
-                "reference": "f846725591203098246276b2e7b9e8b7814c4965"
+                "reference": "92927e26d7fc3f271efe1f55bdbb073fbb2f0722"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/opis/closure/zipball/f846725591203098246276b2e7b9e8b7814c4965",
-                "reference": "f846725591203098246276b2e7b9e8b7814c4965",
+                "url": "https://api.github.com/repos/opis/closure/zipball/92927e26d7fc3f271efe1f55bdbb073fbb2f0722",
+                "reference": "92927e26d7fc3f271efe1f55bdbb073fbb2f0722",
                 "shasum": ""
             },
             "require": {
@@ -3513,7 +3510,7 @@
                 "serialization",
                 "serialize"
             ],
-            "time": "2019-05-31T20:04:32+00:00"
+            "time": "2019-07-09T21:58:11+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -4262,24 +4259,24 @@
         },
         {
             "name": "ralouphie/getallheaders",
-            "version": "2.0.5",
+            "version": "3.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ralouphie/getallheaders.git",
-                "reference": "5601c8a83fbba7ef674a7369456d12f1e0d0eafa"
+                "reference": "120b605dfeb996808c31b6477290a714d356e822"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ralouphie/getallheaders/zipball/5601c8a83fbba7ef674a7369456d12f1e0d0eafa",
-                "reference": "5601c8a83fbba7ef674a7369456d12f1e0d0eafa",
+                "url": "https://api.github.com/repos/ralouphie/getallheaders/zipball/120b605dfeb996808c31b6477290a714d356e822",
+                "reference": "120b605dfeb996808c31b6477290a714d356e822",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3"
+                "php": ">=5.6"
             },
             "require-dev": {
-                "phpunit/phpunit": "~3.7.0",
-                "satooshi/php-coveralls": ">=1.0"
+                "php-coveralls/php-coveralls": "^2.1",
+                "phpunit/phpunit": "^5 || ^6.5"
             },
             "type": "library",
             "autoload": {
@@ -4298,7 +4295,7 @@
                 }
             ],
             "description": "A polyfill for getallheaders.",
-            "time": "2016-02-11T07:05:27+00:00"
+            "time": "2019-03-08T08:55:37+00:00"
         },
         {
             "name": "ramsey/uuid",
@@ -4613,16 +4610,16 @@
         },
         {
             "name": "swagger-api/swagger-ui",
-            "version": "v3.22.3",
+            "version": "v3.23.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swagger-api/swagger-ui.git",
-                "reference": "57402ecdd8945758a594c8b4b2088b6749852f4b"
+                "reference": "97b9c3e06834f7d1b896267dc852d59f7df1b58e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swagger-api/swagger-ui/zipball/57402ecdd8945758a594c8b4b2088b6749852f4b",
-                "reference": "57402ecdd8945758a594c8b4b2088b6749852f4b",
+                "url": "https://api.github.com/repos/swagger-api/swagger-ui/zipball/97b9c3e06834f7d1b896267dc852d59f7df1b58e",
+                "reference": "97b9c3e06834f7d1b896267dc852d59f7df1b58e",
                 "shasum": ""
             },
             "type": "library",
@@ -4666,7 +4663,7 @@
                 "swagger",
                 "ui"
             ],
-            "time": "2019-06-08T18:14:11+00:00"
+            "time": "2019-06-29T19:43:30+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6362,16 +6359,16 @@
         },
         {
             "name": "zendframework/zend-diactoros",
-            "version": "2.1.2",
+            "version": "2.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-diactoros.git",
-                "reference": "37bf68b428850ee26ed7c3be6c26236dd95a95f1"
+                "reference": "279723778c40164bcf984a2df12ff2c6ec5e61c1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-diactoros/zipball/37bf68b428850ee26ed7c3be6c26236dd95a95f1",
-                "reference": "37bf68b428850ee26ed7c3be6c26236dd95a95f1",
+                "url": "https://api.github.com/repos/zendframework/zend-diactoros/zipball/279723778c40164bcf984a2df12ff2c6ec5e61c1",
+                "reference": "279723778c40164bcf984a2df12ff2c6ec5e61c1",
                 "shasum": ""
             },
             "require": {
@@ -6424,7 +6421,7 @@
                 "psr",
                 "psr-7"
             ],
-            "time": "2019-04-29T21:11:00+00:00"
+            "time": "2019-07-10T16:13:25+00:00"
         },
         {
             "name": "zircote/swagger-php",
@@ -6678,16 +6675,16 @@
         },
         {
             "name": "filp/whoops",
-            "version": "2.4.0",
+            "version": "2.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filp/whoops.git",
-                "reference": "1a1a1044ad00e285bd2825fac4c3a0443d90ad33"
+                "reference": "6fb502c23885701a991b0bba974b1a8eb6673577"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filp/whoops/zipball/1a1a1044ad00e285bd2825fac4c3a0443d90ad33",
-                "reference": "1a1a1044ad00e285bd2825fac4c3a0443d90ad33",
+                "url": "https://api.github.com/repos/filp/whoops/zipball/6fb502c23885701a991b0bba974b1a8eb6673577",
+                "reference": "6fb502c23885701a991b0bba974b1a8eb6673577",
                 "shasum": ""
             },
             "require": {
@@ -6735,7 +6732,7 @@
                 "throwable",
                 "whoops"
             ],
-            "time": "2019-06-23T09:00:00+00:00"
+            "time": "2019-07-04T09:00:00+00:00"
         },
         {
             "name": "fzaninotto/faker",
@@ -7595,16 +7592,16 @@
         },
         {
             "name": "phpunit/php-token-stream",
-            "version": "3.0.1",
+            "version": "3.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-token-stream.git",
-                "reference": "c99e3be9d3e85f60646f152f9002d46ed7770d18"
+                "reference": "c4a66b97f040e3e20b3aa2a243230a1c3a9f7c8c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/c99e3be9d3e85f60646f152f9002d46ed7770d18",
-                "reference": "c99e3be9d3e85f60646f152f9002d46ed7770d18",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/c4a66b97f040e3e20b3aa2a243230a1c3a9f7c8c",
+                "reference": "c4a66b97f040e3e20b3aa2a243230a1c3a9f7c8c",
                 "shasum": ""
             },
             "require": {
@@ -7640,7 +7637,7 @@
             "keywords": [
                 "tokenizer"
             ],
-            "time": "2018-10-30T05:52:18+00:00"
+            "time": "2019-07-08T05:24:54+00:00"
         },
         {
             "name": "phpunit/phpunit",

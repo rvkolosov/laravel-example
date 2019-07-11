@@ -8,6 +8,7 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\BelongsToMany;
+use NovaAttachMany\AttachMany;
 
 class Role extends Resource
 {
@@ -57,6 +58,8 @@ class Role extends Resource
                 ->format('DD MMM YYYY'),
 
             BelongsToMany::make('Permissions'),
+
+            AttachMany::make('Permissions'),
         ];
     }
 

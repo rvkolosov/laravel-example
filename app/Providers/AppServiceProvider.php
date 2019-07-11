@@ -4,6 +4,9 @@ namespace App\Providers;
 
 use Redis;
 use Illuminate\Support\ServiceProvider;
+use App\Models\Message;
+use App\Observers\MessageObserver;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -15,6 +18,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Redis::enableEvents();
+
+        Message::observe(MessageObserver::class);
     }
 
     /**

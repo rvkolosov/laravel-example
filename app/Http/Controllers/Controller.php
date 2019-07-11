@@ -10,15 +10,5 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-
-    protected function resourceAbilityMap()
-    {
-        return [
-            'create' => 'create',
-            'store' => 'create',
-            'edit' => 'update',
-            'update' => 'update',
-            'destroy' => 'delete',
-        ];
-    }
+    
 }

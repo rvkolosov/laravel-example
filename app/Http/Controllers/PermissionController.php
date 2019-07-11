@@ -17,13 +17,6 @@ class PermissionController extends Controller
         $this->authorizeResource(Permission::class);
     }
 
-    protected function resourceAbilityMap()
-    {
-        return array_merge(parent::resourceAbilityMap(), [
-            'index' => 'list',
-            'show' => 'view',
-        ]);
-    }
 
     /**
      * Display a listing of the resource.
@@ -48,7 +41,7 @@ class PermissionController extends Controller
      */
     public function store(StorePermissionRequest $request)
     {
-        $permission = Permission::create($request->all());
+        $permission = Permission::create($request->validated());
 
         return new PermissionResource($permission);
     }
@@ -73,7 +66,7 @@ class PermissionController extends Controller
      */
     public function update(UpdatePermissionRequest $request, Permission $permission)
     {
-        $permission->update($request->all());
+        $permission->update($request->validated());
 
         return new PermissionResource($permission);
     }

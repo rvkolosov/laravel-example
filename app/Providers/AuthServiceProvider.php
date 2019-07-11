@@ -24,11 +24,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        Role::class => RolePolicy::class,
-        Todo::class => TodoPolicy::class,
-        Permission::class => PermissionPolicy::class,
-        User::class => UserPolicy::class,
-        Message::class => MessagePolicy::class,
+        //
     ];
 
     /**
@@ -39,10 +35,6 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
-
-        Gate::define('viewWebSocketsDashboard', function ($user = null) {
-            return $user->isRole('admin');
-        });
 
         Passport::routes();
     }

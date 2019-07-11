@@ -89,5 +89,44 @@ class PermissionSeeder extends Seeder
         $role = Role::find(3);
 
         $role->permissions()->attach($permissions);
+
+        //rooms permissions
+        $permissions = [];
+
+        $permission = Permission::create(['name' => 'room-list']);
+
+        array_push($permissions, $permission->id);
+
+        $permission = Permission::create(['name' => 'room-view']);
+
+        array_push($permissions, $permission->id);
+
+        $permission = Permission::create(['name' => 'room-create']);
+
+        array_push($permissions, $permission->id);
+
+        $permission = Permission::create(['name' => 'room-update']);
+
+        array_push($permissions, $permission->id);
+
+        $permission = Permission::create(['name' => 'room-delete']);
+
+        array_push($permissions, $permission->id);
+
+        $permission = Permission::create(['name' => 'room-restore']);
+
+        array_push($permissions, $permission->id);
+
+        $role = Role::find(1);
+
+        $role->permissions()->attach($permissions);
+
+        $role = Role::find(2);
+
+        $role->permissions()->attach($permissions);
+
+        $role = Role::find(3);
+
+        $role->permissions()->attach($permissions);
     }
 }

@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Models\Room;
 
 class RegisterController extends Controller
 {
@@ -74,6 +75,10 @@ class RegisterController extends Controller
         $role = Role::whereName('user')->first();
 
         $user->roles()->attach($role->id);
+
+        $room = Room::whereName('default')->first();
+
+        $user->rooms()->attach($room->id);
 
         return $user;
     }

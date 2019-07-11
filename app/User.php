@@ -10,6 +10,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Passport\HasApiTokens;
+use App\Models\Room;
 
 /**
  * App\User
@@ -40,6 +41,7 @@ use Laravel\Passport\HasApiTokens;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereUpdatedAt($value)
  * @mixin \Eloquent
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Message[] $messages
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Room[] $rooms
  */
 class User extends Authenticatable
 {
@@ -92,6 +94,11 @@ class User extends Authenticatable
         return in_array($name, $this->roles->pluck('permissions')->collapse()->pluck('name')->toArray());
     }
 
+    public function inRoom(int $id): bool
+    {
+        return in_array($id, $this->rooms()->get()->pluck('id')->toArray());
+    }
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -108,4 +115,8 @@ class User extends Authenticatable
         return $this->hasMany(Message::class);
     }
 
+    public function rooms()
+    {
+        return $this->hasMany(Room::class);
+    }
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class UpdateMessagesTable extends Migration
+class CreateRoomUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,15 @@ class UpdateMessagesTable extends Migration
      */
     public function up()
     {
-        Schema::table('messages', function (Blueprint $table) {
-            $table->foreign('user_id')
-                ->references('id')->on('users')
-                ->onUpdate('cascade');
+        Schema::create('room_user', function (Blueprint $table) {
+            $table->unsignedInteger('room_id');
+            $table->unsignedInteger('user_id');
+            $table->primary(['room_id', 'user_id']);
             $table->foreign('room_id')
                 ->references('id')->on('rooms')
+                ->onUpdate('cascade');
+            $table->foreign('user_id')
+                ->references('id')->on('users')
                 ->onUpdate('cascade');
         });
     }
@@ -30,9 +33,6 @@ class UpdateMessagesTable extends Migration
      */
     public function down()
     {
-        Schema::table('messages', function (Blueprint $table) {
-            $table->dropForeign('user_id');
-            $table->dropForeign('room_id');
-        });
+        Schema::dropIfExists('room_user');
     }
 }

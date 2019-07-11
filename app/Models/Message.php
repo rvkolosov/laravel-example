@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Jedrzej\Searchable\SearchableTrait;
 use RVKolosov\LaravelWithTrait\WithTrait;
+use App\Models\Room;
 
 /**
  * App\Models\Message
@@ -34,6 +35,9 @@ use RVKolosov\LaravelWithTrait\WithTrait;
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Message withoutTrashed()
  * @mixin \Eloquent
  * @property-read \App\User $user
+ * @property int $user_id
+ * @property-read \App\Models\Room $room
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Message whereUserId($value)
  */
 class Message extends Model
 {
@@ -41,6 +45,7 @@ class Message extends Model
 
     protected $fillable = [
         'user_id',
+        'room_id',
         'body',
     ];
 
@@ -55,6 +60,7 @@ class Message extends Model
 
     public $searchable = [
         'user_id',
+        'room_id',
         'body',
     ];
 
@@ -64,5 +70,10 @@ class Message extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function room()
+    {
+        return $this->belongsTo(Room::class);
     }
 }

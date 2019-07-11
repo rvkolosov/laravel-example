@@ -17,14 +17,6 @@ class RoleController extends Controller
         $this->authorizeResource(Role::class);
     }
 
-    protected function resourceAbilityMap()
-    {
-        return array_merge(parent::resourceAbilityMap(), [
-            'index' => 'list',
-            'show' => 'view',
-        ]);
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -48,7 +40,7 @@ class RoleController extends Controller
      */
     public function store(StoreRoleRequest $request)
     {
-        $role = Role::create($request->all());
+        $role = Role::create($request->validated());
 
         return new RoleResource($role);
     }
@@ -73,7 +65,7 @@ class RoleController extends Controller
      */
     public function update(UpdateRoleRequest $request, Role $role)
     {
-        $role->update($request->all());
+        $role->update($request->validated());
 
         return new RoleResource($role);
     }

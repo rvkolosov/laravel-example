@@ -4,22 +4,21 @@ namespace App\Nova;
 
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Gravatar;
-use Laravel\Nova\Fields\Password;
-use Laravel\Nova\Fields\BelongsToMany;
-use Laravel\Nova\Fields\HasMany;
-use Yassi\NestedForm\NestedForm;
+use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Nova\Fields\DateTime;
+use Laravel\Nova\Fields\BelongsTo;
 use NovaAttachMany\AttachMany;
+use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\HasMany;
 
-class User extends Resource
+class Room extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = 'App\\User';
+    public static $model = 'App\Models\Room';
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -34,7 +33,7 @@ class User extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'name', 'email',
+        'id',
     ];
 
     /**
@@ -46,33 +45,29 @@ class User extends Resource
     public function fields(Request $request)
     {
         return [
-            ID::make()->sortable(),
-
-            Gravatar::make(),
+            ID::make()
+                ->sortable(),
 
             Text::make('Name')
+                ->sortable(),
+
+            DateTime::make('Created At')
                 ->sortable()
-                ->rules('required', 'max:255'),
+                ->format('HH:mm DD MMM YYYY')
+                ->hideWhenCreating()
+                ->hideWhenUpdating(),
 
-            Text::make('Email')
+            DateTime::make('Updated At')
                 ->sortable()
-                ->rules('required', 'email', 'max:254')
-                ->creationRules('unique:users,email')
-                ->updateRules('unique:users,email,{{resourceId}}'),
+                ->format('HH:mm DD MMM YYYY')
+                ->hideWhenCreating()
+                ->hideWhenUpdating(),
 
-            Password::make('Password')
-                ->onlyOnForms()
-                ->creationRules('required', 'string', 'min:8')
-                ->updateRules('nullable', 'string', 'min:8'),
+            BelongsTo::make('User'),
 
-            HasMany::make('Roles'),
+            HasMany::make('Users'),
 
-            AttachMany::make('Roles'),
-
-            HasMany::make('Todos'),
-
-            NestedForm::make('Todos')
-                ->heading('{{name}}'),
+            AttachMany::make('Users'),
         ];
     }
 

@@ -46,6 +46,7 @@ use ScoutElastic\Searchable;
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Todo withTrashed()
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Todo withoutTrashed()
  * @mixin \Eloquent
+ * @property \ScoutElastic\Highlight|null $highlight
  */
 class Todo extends Model
 {

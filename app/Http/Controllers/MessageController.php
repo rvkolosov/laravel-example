@@ -20,13 +20,6 @@ class MessageController extends Controller
         $this->authorizeResource(Message::class);
     }
 
-    protected function resourceAbilityMap()
-    {
-        return array_merge(parent::resourceAbilityMap(), [
-            'index' => 'list',
-            'show' => 'view',
-        ]);
-    }
 
     /**
      * Display a listing of the resource.
@@ -51,19 +44,11 @@ class MessageController extends Controller
      */
     public function store(StoreMessageRequest $request)
     {
-        $message = Message::create(array_merge($request->all(), ['user_id' => Auth::user()->id]));
+        if (!Auth::user()->inRoom($request->input('room_id'))) abort(403);
 
-        if ($request->exists('room_id'))
-        {
-            $data = array_merge($message->toArray(), ['room_id' => $request->input('room_id')]);
+        $message = Message::create($request->validated());
 
-            broadcast(new NewRoomMessage($data, Auth::user()->name))->toOthers();
-        }
-        else
-        {
-            broadcast(new NewMessage($message, Auth::user()->name))->toOthers();
-        }
-
+        broadcast(new NewRoomMessage($message, Auth::user()->name))->toOthers();
 
         return new MessageResource($message);
     }
@@ -88,7 +73,7 @@ class MessageController extends Controller
      */
     public function update(UpdateMessageRequest $request, Message $message)
     {
-        $message->update($request->all());
+        $message->update($request->validated());
 
         return new MessageResource($message);
     }

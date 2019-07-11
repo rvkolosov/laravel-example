@@ -11,10 +11,6 @@
 |
 */
 
-Broadcast::channel('App.User.{id}', function ($user, $id) {
-    return (int) $user->id === (int) $id;
-});
-
-Broadcast::channel('rooms.{id}', function($user, $room_id) {
-    return $user->isRole('admin');
+Broadcast::channel('rooms.{id}', function($user, $roomId) {
+    return $user->inRoom($roomId);
 });

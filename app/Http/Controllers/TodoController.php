@@ -47,7 +47,7 @@ class TodoController extends Controller
      */
     public function store(StoreTodoRequest $request)
     {
-        $todo = Todo::create($request->all());
+        $todo = Todo::create($request->validated());
 
         return new TodoResource($todo);
     }
@@ -72,7 +72,7 @@ class TodoController extends Controller
      */
     public function update(UpdateTodoRequest $request, Todo $todo)
     {
-        $todo->update($request->all());
+        $todo->update($request->validated());
 
         return new TodoResource($todo);
     }
