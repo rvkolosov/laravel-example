@@ -19,7 +19,7 @@ Route::apiResource('roles', 'RoleController');
 Route::apiResource('permissions', 'PermissionController');
 Route::apiResource('todos', 'TodoController');
 Route::apiResource('messages', 'MessageController');
-Route::apiResource('rooms', 'RoomControoler');
+Route::apiResource('rooms', 'RoomController');
 
 Route::post('roles/{role}/users/{user}', 'RoleUserController@store')->name('roles.users.store');
 Route::delete('roles/{role}/users/{user}', 'RoleUserController@delete')->name('roles.users.delete');

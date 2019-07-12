@@ -24,6 +24,7 @@ class UpdateMessageRequest extends FormRequest
     public function rules()
     {
         return [
+            'room_id' => 'sometimes|exists:rooms,id',
             'body' => 'sometimes|string|max:255',
         ];
     }

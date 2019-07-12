@@ -15,6 +15,8 @@ use App\User;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Laravel\Passport\Passport;
+use App\Policies\RoomPolicy;
+use App\Models\Room;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -24,7 +26,12 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        //
+        Role::class => RolePolicy::class,
+        Room::class => RoomPolicy::class,
+        User::class => UserPolicy::class,
+        Message::class => MessagePolicy::class,
+        Permission::class => PermissionPolicy::class,
+        Todo::class => TodoPolicy::class,
     ];
 
     /**

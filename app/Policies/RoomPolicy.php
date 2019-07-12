@@ -28,7 +28,7 @@ class RoomPolicy
      */
     public function viewAny(User $user)
     {
-        return true;
+        return $user->hasPermission('room-list');
     }
 
     /**
@@ -40,7 +40,7 @@ class RoomPolicy
      */
     public function view(User $user, Room $room)
     {
-        return true;
+        return $user->hasPermission('room-view');
     }
 
     /**

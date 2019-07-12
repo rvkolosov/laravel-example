@@ -11,6 +11,6 @@
 |
 */
 
-Broadcast::channel('rooms.{id}', function($user, $roomId) {
-    return $user->inRoom($roomId);
+Broadcast::channel('rooms.{room_id}', function($user, $room_id) {
+    return $user->inRoom($room_id);
 });

@@ -24,6 +24,7 @@ class StoreMessageRequest extends FormRequest
     public function rules()
     {
         return [
+            'room_id' => 'required|exists:rooms,id',
             'body' => 'required|string|max:255',
         ];
     }
