@@ -2,21 +2,8 @@
 
 namespace App\Providers;
 
-use App\Models\Message;
-use App\Models\Permission;
-use App\Models\Role;
-use App\Models\Todo;
-use App\Policies\MessagePolicy;
-use App\Policies\PermissionPolicy;
-use App\Policies\RolePolicy;
-use App\Policies\TodoPolicy;
-use App\Policies\UserPolicy;
-use App\User;
-use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
-use Laravel\Passport\Passport;
-use App\Policies\RoomPolicy;
-use App\Models\Room;
+use Illuminate\Support\Facades\Gate;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -26,12 +13,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        Role::class => RolePolicy::class,
-        Room::class => RoomPolicy::class,
-        User::class => UserPolicy::class,
-        Message::class => MessagePolicy::class,
-        Permission::class => PermissionPolicy::class,
-        Todo::class => TodoPolicy::class,
+        // 'App\Model' => 'App\Policies\ModelPolicy',
     ];
 
     /**
@@ -43,6 +25,6 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        Passport::routes();
+        //
     }
 }

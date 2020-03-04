@@ -1,1 +1,0 @@
-<?php $report->render(); ?>

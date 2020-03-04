@@ -86,5 +86,7 @@ class ItemInitCommand extends Command
         Artisan::call('make:test', [
             'name' => $model . 'Test',
         ]);
+
+        return null;
     }
 }

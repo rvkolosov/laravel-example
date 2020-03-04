@@ -2,15 +2,11 @@
 
 namespace App\Nova;
 
-use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Gravatar;
+use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Password;
-use Laravel\Nova\Fields\BelongsToMany;
-use Laravel\Nova\Fields\HasMany;
-use Yassi\NestedForm\NestedForm;
-use NovaAttachMany\AttachMany;
+use Laravel\Nova\Fields\Text;
 
 class User extends Resource
 {
@@ -64,15 +60,6 @@ class User extends Resource
                 ->onlyOnForms()
                 ->creationRules('required', 'string', 'min:8')
                 ->updateRules('nullable', 'string', 'min:8'),
-
-            HasMany::make('Roles'),
-
-            AttachMany::make('Roles'),
-
-            HasMany::make('Todos'),
-
-            NestedForm::make('Todos')
-                ->heading('{{name}}'),
         ];
     }
 
