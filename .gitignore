@@ -12,3 +12,4 @@ npm-debug.log
 yarn-error.log
 /nova
 /.idea
+laravel-echo-server.lock

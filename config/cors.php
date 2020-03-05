@@ -21,6 +21,8 @@ return [
         'register',
         'logout',
         'api/*',
+        'socket.io/*',
+        'broadcasting/auth',
     ],
 
     'allowed_methods' => ['*'],

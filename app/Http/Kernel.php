@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\SetLocale;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 use Laravel\Airlock\Http\Middleware\EnsureFrontendRequestsAreStateful;
 
@@ -15,6 +16,7 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $middleware = [
+        \App\Http\Middleware\SetLocale::class,
         \App\Http\Middleware\TrustProxies::class,
         \Fruitcake\Cors\HandleCors::class,
         \App\Http\Middleware\CheckForMaintenanceMode::class,
