@@ -16,7 +16,7 @@ class SetLocale
      */
     public function handle($request, Closure $next)
     {
-        $locale = session()->get('locale', App::getLocale());
+        $locale = session('locale');
 
         if ($request->has('locale')) {
             $locale = $request->input('locale');
@@ -24,7 +24,7 @@ class SetLocale
 
         App::setLocale($locale);
 
-        session()->put('locale', $locale);
+        session()->put('locale', App::getLocale());
 
         return $next($request);
     }

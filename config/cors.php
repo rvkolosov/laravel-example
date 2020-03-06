@@ -16,10 +16,8 @@ return [
     */
 
     'paths' => [
-        'airlock/csrf-cookie',
-        'login',
+        'oauth/token',
         'register',
-        'logout',
         'api/*',
         'socket.io/*',
         'broadcasting/auth',
