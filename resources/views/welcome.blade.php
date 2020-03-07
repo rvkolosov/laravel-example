@@ -67,6 +67,10 @@
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
+                    @foreach (config('app.available_locales') as $locale)
+                        <a href="{{ route(\Illuminate\Support\Facades\Route::currentRouteName(), ['locale' => $locale]) }}"
+                           @if (app()->getLocale() == $locale) style="font-weight: bold; text-decoration: underline" @endif>{{ strtoupper($locale) }}</a>
+                    @endforeach
                     @auth
                         <a href="{{ url('/home') }}">{{ __('Go Home') }}</a>
                     @else

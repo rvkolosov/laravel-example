@@ -17,3 +17,16 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('test/{post}', function (\App\Models\Post $post) {
+    if (!Auth::user()->hasPermissionTo('show posts')) abort(403);
+
+    return $post->getTranslation('title', app()->getLocale());
+})->middleware('auth:api');
+
+Route::bind('post', function ($value) {
+    return \App\Models\Post::where('id', $value)
+        ->orWhere('slug->en', $value)
+        ->orWhere('slug->ru', $value)
+        ->firstOrFail();
+});
