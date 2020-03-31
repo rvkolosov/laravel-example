@@ -1,6 +1,8 @@
 before_script:
   - echo "Before script"
-  - cd /var/www/laravel-example #your project path
+  - cd /root/laravel-example #your project path
+  - git pull
+  - composer install
 deploying:
   stage: deploy
   script:
