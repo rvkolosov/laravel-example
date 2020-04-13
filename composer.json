@@ -25,6 +25,7 @@
         "laravel/horizon": "^4.0",
         "laravel/nova": "*",
         "laravel/passport": "^8.4",
+        "laravel/telescope": "^3.2",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.0",
         "lorisleiva/laravel-deployer": "^0.3.0",

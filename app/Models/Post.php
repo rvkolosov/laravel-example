@@ -93,6 +93,10 @@ class Post extends Model
         'rating',
     ];
 
+    protected $mapping = [
+        'properties' => [],
+    ];
+
     protected static $logFillable = true;
 
     protected $indexConfigurator = PostIndexConfigurator::class;

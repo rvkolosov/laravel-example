@@ -36,12 +36,14 @@ class PostSearchRule extends SearchRule
                 'multi_match' => [
                     'query' => $this->builder->query,
                     'fuzziness' => 'auto',
-                    //'analyzer' => 'standard',
                     'type' => 'most_fields',
                     'fields' => [
-                        'title',
-                        'description',
-                        'text',
+                        'title.en',
+                        'title.ru',
+                        'description.en',
+                        'description.ru',
+                        'text.en',
+                        'text.ru',
                     ],
                 ]
             ],
