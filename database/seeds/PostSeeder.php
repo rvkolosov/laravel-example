@@ -12,6 +12,8 @@ class PostSeeder extends Seeder
      */
     public function run()
     {
+        Post::unsetEventDispatcher();
+
         Post::create([
             'slug' => ['ru' => 'proverka', 'en' => 'testing'],
             'user_id' => \App\User::first()->id,

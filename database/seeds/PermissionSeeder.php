@@ -24,21 +24,23 @@ class PermissionSeeder extends Seeder
         ];
 
         foreach ($models as $model) {
-            Permission::create(['name' => "list {$model}s"]);
-            Permission::create(['name' => "show {$model}s"]);
-            Permission::create(['name' => "create {$model}s"]);
-            Permission::create(['name' => "update {$model}s"]);
-            Permission::create(['name' => "delete {$model}s"]);
+            Permission::create(['name' => "view-any-{$model}"]);
+            Permission::create(['name' => "view-{$model}"]);
+            Permission::create(['name' => "create-{$model}"]);
+            Permission::create(['name' => "update-{$model}"]);
+            Permission::create(['name' => "delete-{$model}"]);
+            Permission::create(['name' => "restore-{$model}"]);
         }
 
         $role = Role::findByName('admin');
 
         foreach ($models as $model) {
-            $role->givePermissionTo("list {$model}s");
-            $role->givePermissionTo("show {$model}s");
-            $role->givePermissionTo("create {$model}s");
-            $role->givePermissionTo("update {$model}s");
-            $role->givePermissionTo("delete {$model}s");
+            $role->givePermissionTo("view-any-{$model}");
+            $role->givePermissionTo("view-{$model}");
+            $role->givePermissionTo("create-{$model}");
+            $role->givePermissionTo("update-{$model}");
+            $role->givePermissionTo("delete-{$model}");
+            $role->givePermissionTo("restore-{$model}");
         }
 
         $role = Role::findByName('user');
@@ -50,14 +52,14 @@ class PermissionSeeder extends Seeder
             'todo',
         ];
 
-        $role->givePermissionTo('update users');
+        $role->givePermissionTo('update-user');
 
         foreach ($models as $model) {
-            $role->givePermissionTo("list {$model}s");
-            $role->givePermissionTo("show {$model}s");
-            $role->givePermissionTo("create {$model}s");
-            $role->givePermissionTo("update {$model}s");
-            $role->givePermissionTo("delete {$model}s");
+            $role->givePermissionTo("view-any-{$model}");
+            $role->givePermissionTo("view-{$model}");
+            $role->givePermissionTo("create-{$model}");
+            $role->givePermissionTo("update-{$model}");
+            $role->givePermissionTo("delete-{$model}");
         }
     }
 }

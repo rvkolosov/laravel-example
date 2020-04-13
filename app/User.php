@@ -2,10 +2,15 @@
 
 namespace App;
 
+use App\Models\Message;
+use App\Models\Post;
+use App\Models\Room;
+use App\Models\Todo;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
+use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\Permission\Traits\HasRoles;
 
 /**
@@ -43,12 +48,21 @@ use Spatie\Permission\Traits\HasRoles;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereRememberToken($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Message[] $messages
+ * @property-read int|null $messages_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Post[] $posts
+ * @property-read int|null $posts_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Room[] $rooms
+ * @property-read int|null $rooms_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Todo[] $todos
+ * @property-read int|null $todos_count
  */
 class User extends Authenticatable
 {
     use HasRoles;
     use HasApiTokens;
     use Notifiable;
+    use LogsActivity;
 
     /**
      * The attributes that are mass assignable.
@@ -76,4 +90,31 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    protected static $logFillable = true;
+
+    public function inRoom(Room $room)
+    {
+        return $this->rooms->contains($room);
+    }
+
+    public function todos()
+    {
+        return $this->hasMany(Todo::class);
+    }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+
+    public function rooms()
+    {
+        return $this->belongsToMany(Room::class);
+    }
+
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
+    }
 }

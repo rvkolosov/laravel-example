@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Broadcast;
 |
 */
 
-Broadcast::channel('App.User.{id}', function ($user, $id) {
-    return (int) $user->id === (int) $id;
+Broadcast::channel('rooms.{room_id}', function($user, $room_id) {
+    $room = \App\Models\Room::findOrFail($room_id);
+
+    return $user->inRoom($room);
 });

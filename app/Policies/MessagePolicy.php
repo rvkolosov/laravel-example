@@ -11,6 +11,16 @@ class MessagePolicy
     use HandlesAuthorization;
 
     /**
+     * @param User $user
+     * @param $ability
+     * @return bool
+     */
+    public function before(User $user, $ability)
+    {
+        return $user->hasRole('admin');
+    }
+
+    /**
      * Determine whether the user can view any messages.
      *
      * @param  \App\User  $user

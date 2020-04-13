@@ -11,6 +11,16 @@ class ImagePolicy
     use HandlesAuthorization;
 
     /**
+     * @param User $user
+     * @param $ability
+     * @return bool
+     */
+    public function before(User $user, $ability)
+    {
+        return $user->hasRole('admin');
+    }
+
+    /**
      * Determine whether the user can view any images.
      *
      * @param  \App\User  $user
@@ -18,7 +28,7 @@ class ImagePolicy
      */
     public function viewAny(User $user)
     {
-        //
+        return $user->can('view-any-image');
     }
 
     /**
@@ -30,7 +40,7 @@ class ImagePolicy
      */
     public function view(User $user, Image $image)
     {
-        //
+        return $user->can('view-image');
     }
 
     /**
@@ -41,7 +51,7 @@ class ImagePolicy
      */
     public function create(User $user)
     {
-        //
+        return $user->can('create-image');
     }
 
     /**
@@ -53,7 +63,9 @@ class ImagePolicy
      */
     public function update(User $user, Image $image)
     {
-        //
+        return $user->can('update-image')
+            && (optional($image->post)->user_id === $user->id
+                || is_null($image->post));
     }
 
     /**
@@ -65,7 +77,9 @@ class ImagePolicy
      */
     public function delete(User $user, Image $image)
     {
-        //
+        return $user->can('delete-image')
+            && (optional($image->post)->user_id === $user->id
+                || is_null($image->post));
     }
 
     /**
@@ -77,7 +91,7 @@ class ImagePolicy
      */
     public function restore(User $user, Image $image)
     {
-        //
+        return $user->can('restore-image');
     }
 
     /**
@@ -89,6 +103,6 @@ class ImagePolicy
      */
     public function forceDelete(User $user, Image $image)
     {
-        //
+        return false;
     }
 }

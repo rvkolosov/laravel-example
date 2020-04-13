@@ -9,25 +9,31 @@
     "license": "MIT",
     "require": {
         "php": "^7.4",
+        "babenkoivan/scout-elasticsearch-driver": "^4.2",
+        "bolechen/nova-activitylog": "^0.2.1",
         "caouecs/laravel-lang": "~4.0",
         "coderello/laravel-nova-lang": "^1.4",
+        "drobee/nova-sluggable": "^1.2",
+        "epartment/nova-dependency-container": "^1.2",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^1.0",
         "fzaninotto/faker": "^1.9",
         "gregoriohc/laravel-nova-theme-responsive": "^0.8.0",
         "guzzlehttp/guzzle": "^6.3",
+        "jedrzej/searchable": "^0.0.17",
         "laravel/framework": "^7.0",
         "laravel/horizon": "^4.0",
         "laravel/nova": "*",
         "laravel/passport": "^8.4",
-        "laravel/telescope": "^3.1",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.0",
         "lorisleiva/laravel-deployer": "^0.3.0",
         "predis/predis": "^1.1",
+        "silvanite/nova-field-cloudinary": "dev-master",
         "spatie/laravel-activitylog": "^3.11",
         "spatie/laravel-permission": "^3.11",
         "spatie/laravel-translatable": "^4.3",
+        "spatie/nova-translatable": "^3.0",
         "vyuldashev/nova-permission": "^2.5"
     },
     "require-dev": {
@@ -79,6 +85,10 @@
         {
             "type": "path",
             "url": "./nova"
+        },
+        {
+            "url": "https://github.com/rvkolosov/nova-field-cloudinary.git",
+            "type": "git"
         }
     ]
 }

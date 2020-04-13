@@ -11,14 +11,24 @@ class RoomPolicy
     use HandlesAuthorization;
 
     /**
+     * @param User $user
+     * @param $ability
+     * @return bool
+     */
+    public function before(User $user, $ability)
+    {
+        return $user->hasRole('admin');
+    }
+
+    /**
      * Determine whether the user can view any rooms.
      *
      * @param  \App\User  $user
      * @return mixed
      */
-    public function viewAny(User $user)
+    public function viewAny(?User $user)
     {
-        //
+        return true;
     }
 
     /**

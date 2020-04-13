@@ -5,7 +5,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2020-03-07 04:35:10.
+    * Generated on 2020-04-07 20:00:00.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -85,6 +85,7 @@ namespace PHPSTORM_META {
         'command.config.clear' => \Illuminate\Foundation\Console\ConfigClearCommand::class,
         'command.console.make' => \Illuminate\Foundation\Console\ConsoleMakeCommand::class,
         'command.controller.make' => \Illuminate\Routing\Console\ControllerMakeCommand::class,
+        'command.country.nova-lang' => \Coderello\LaravelNovaLang\Commands\NovaLangCountry::class,
         'command.db.wipe' => \Illuminate\Database\Console\WipeCommand::class,
         'command.down' => \Illuminate\Foundation\Console\DownCommand::class,
         'command.environment' => \Illuminate\Foundation\Console\EnvironmentCommand::class,
@@ -269,6 +270,7 @@ namespace PHPSTORM_META {
         'command.config.clear' => \Illuminate\Foundation\Console\ConfigClearCommand::class,
         'command.console.make' => \Illuminate\Foundation\Console\ConsoleMakeCommand::class,
         'command.controller.make' => \Illuminate\Routing\Console\ControllerMakeCommand::class,
+        'command.country.nova-lang' => \Coderello\LaravelNovaLang\Commands\NovaLangCountry::class,
         'command.db.wipe' => \Illuminate\Database\Console\WipeCommand::class,
         'command.down' => \Illuminate\Foundation\Console\DownCommand::class,
         'command.environment' => \Illuminate\Foundation\Console\EnvironmentCommand::class,
@@ -453,6 +455,7 @@ namespace PHPSTORM_META {
         'command.config.clear' => \Illuminate\Foundation\Console\ConfigClearCommand::class,
         'command.console.make' => \Illuminate\Foundation\Console\ConsoleMakeCommand::class,
         'command.controller.make' => \Illuminate\Routing\Console\ControllerMakeCommand::class,
+        'command.country.nova-lang' => \Coderello\LaravelNovaLang\Commands\NovaLangCountry::class,
         'command.db.wipe' => \Illuminate\Database\Console\WipeCommand::class,
         'command.down' => \Illuminate\Foundation\Console\DownCommand::class,
         'command.environment' => \Illuminate\Foundation\Console\EnvironmentCommand::class,
@@ -637,6 +640,7 @@ namespace PHPSTORM_META {
         'command.config.clear' => \Illuminate\Foundation\Console\ConfigClearCommand::class,
         'command.console.make' => \Illuminate\Foundation\Console\ConsoleMakeCommand::class,
         'command.controller.make' => \Illuminate\Routing\Console\ControllerMakeCommand::class,
+        'command.country.nova-lang' => \Coderello\LaravelNovaLang\Commands\NovaLangCountry::class,
         'command.db.wipe' => \Illuminate\Database\Console\WipeCommand::class,
         'command.down' => \Illuminate\Foundation\Console\DownCommand::class,
         'command.environment' => \Illuminate\Foundation\Console\EnvironmentCommand::class,
@@ -821,6 +825,7 @@ namespace PHPSTORM_META {
         'command.config.clear' => \Illuminate\Foundation\Console\ConfigClearCommand::class,
         'command.console.make' => \Illuminate\Foundation\Console\ConsoleMakeCommand::class,
         'command.controller.make' => \Illuminate\Routing\Console\ControllerMakeCommand::class,
+        'command.country.nova-lang' => \Coderello\LaravelNovaLang\Commands\NovaLangCountry::class,
         'command.db.wipe' => \Illuminate\Database\Console\WipeCommand::class,
         'command.down' => \Illuminate\Foundation\Console\DownCommand::class,
         'command.environment' => \Illuminate\Foundation\Console\EnvironmentCommand::class,
@@ -1005,6 +1010,7 @@ namespace PHPSTORM_META {
         'command.config.clear' => \Illuminate\Foundation\Console\ConfigClearCommand::class,
         'command.console.make' => \Illuminate\Foundation\Console\ConsoleMakeCommand::class,
         'command.controller.make' => \Illuminate\Routing\Console\ControllerMakeCommand::class,
+        'command.country.nova-lang' => \Coderello\LaravelNovaLang\Commands\NovaLangCountry::class,
         'command.db.wipe' => \Illuminate\Database\Console\WipeCommand::class,
         'command.down' => \Illuminate\Foundation\Console\DownCommand::class,
         'command.environment' => \Illuminate\Foundation\Console\EnvironmentCommand::class,
@@ -1189,6 +1195,7 @@ namespace PHPSTORM_META {
         'command.config.clear' => \Illuminate\Foundation\Console\ConfigClearCommand::class,
         'command.console.make' => \Illuminate\Foundation\Console\ConsoleMakeCommand::class,
         'command.controller.make' => \Illuminate\Routing\Console\ControllerMakeCommand::class,
+        'command.country.nova-lang' => \Coderello\LaravelNovaLang\Commands\NovaLangCountry::class,
         'command.db.wipe' => \Illuminate\Database\Console\WipeCommand::class,
         'command.down' => \Illuminate\Foundation\Console\DownCommand::class,
         'command.environment' => \Illuminate\Foundation\Console\EnvironmentCommand::class,
@@ -1373,6 +1380,7 @@ namespace PHPSTORM_META {
         'command.config.clear' => \Illuminate\Foundation\Console\ConfigClearCommand::class,
         'command.console.make' => \Illuminate\Foundation\Console\ConsoleMakeCommand::class,
         'command.controller.make' => \Illuminate\Routing\Console\ControllerMakeCommand::class,
+        'command.country.nova-lang' => \Coderello\LaravelNovaLang\Commands\NovaLangCountry::class,
         'command.db.wipe' => \Illuminate\Database\Console\WipeCommand::class,
         'command.down' => \Illuminate\Foundation\Console\DownCommand::class,
         'command.environment' => \Illuminate\Foundation\Console\EnvironmentCommand::class,

@@ -1,18 +1,10 @@
-master:
+before_script:
+  - echo "Before script"
+  - cd /home/deployer/laravel-example #your project path
+  - git pull
+  - composer install
+deploying:
   stage: deploy
-  only:
-    - master
   script:
-    - cd /home/deployer/laravel-example
-    - git pull
-    - composer install
+    - echo "Deployed"
     - php artisan deploy
-    - touch test3.txt
-
-dev:
-  stage: deploy
-  only:
-    - dev
-  script:
-    - cd /home/deployer
-    - touch test.txt

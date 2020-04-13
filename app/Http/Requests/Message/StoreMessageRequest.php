@@ -13,7 +13,7 @@ class StoreMessageRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return $this->user()->inRoom($this->input('room_id'));
     }
 
     /**

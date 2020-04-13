@@ -2,8 +2,13 @@
 
 namespace App\Models;
 
+use App\Searches\Indexes\PostIndexConfigurator;
+use App\Searches\Rules\PostSearchRule;
+use App\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Jedrzej\Searchable\SearchableTrait;
+use ScoutElastic\Searchable;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\Translatable\HasTranslations;
 
@@ -40,12 +45,25 @@ use Spatie\Translatable\HasTranslations;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post whereUserId($value)
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Spatie\Activitylog\Models\Activity[] $activities
+ * @property-read int|null $activities_count
+ * @property-read mixed $translations
+ * @property-read \App\Models\Image|null $image
+ * @property-read \App\User $user
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post filtered($query = [])
+ * @method static bool|null forceDelete()
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Post onlyTrashed()
+ * @method static bool|null restore()
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Post withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Post withoutTrashed()
  */
 class Post extends Model
 {
     use SoftDeletes;
     use HasTranslations;
     use LogsActivity;
+    use SearchableTrait;
+    use Searchable;
 
     protected $fillable = [
         'slug',
@@ -67,4 +85,29 @@ class Post extends Model
         'description',
         'text',
     ];
+
+    public $searchable = [
+        'id',
+        'image_id',
+        'user_id',
+        'rating',
+    ];
+
+    protected static $logFillable = true;
+
+    protected $indexConfigurator = PostIndexConfigurator::class;
+
+    protected $searchRules = [
+        PostSearchRule::class,
+    ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function image()
+    {
+        return $this->belongsTo(Image::class);
+    }
 }

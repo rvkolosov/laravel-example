@@ -108,6 +108,7 @@ return [
         'shared_files' => [
             '.env',
             'nova',
+            'laravel-echo-server.lock',
         ],
     ],
 

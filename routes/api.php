@@ -14,15 +14,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware('auth:api')
+    ->get('user', fn(Request $request) => $request->user());
+
+Route::apiResource('images', 'ImageController');
+Route::apiResource('messages', 'MessageController');
+Route::apiResource('posts', 'PostController');
+Route::apiResource('rooms', 'RoomController');
+Route::apiResource('todos', 'TodoController');
+
+Route::bind('image', function ($value) {
+    return \App\Models\Image::where('id', $value)
+        ->orWhere('slug', $value)
+        ->firstOrFail();
 });
-
-Route::get('test/{post}', function (\App\Models\Post $post) {
-    if (!Auth::user()->hasPermissionTo('show posts')) abort(403);
-
-    return $post->getTranslation('title', app()->getLocale());
-})->middleware('auth:api');
 
 Route::bind('post', function ($value) {
     return \App\Models\Post::where('id', $value)

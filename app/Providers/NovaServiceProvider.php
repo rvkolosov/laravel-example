@@ -79,6 +79,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     {
         return [
             \Vyuldashev\NovaPermission\NovaPermissionTool::make(),
+            \Bolechen\NovaActivitylog\NovaActivitylog::make(),
         ];
     }
 
