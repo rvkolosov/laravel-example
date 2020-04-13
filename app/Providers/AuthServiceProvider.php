@@ -12,6 +12,7 @@ use App\Policies\MessagePolicy;
 use App\Policies\PostPolicy;
 use App\Policies\RoomPolicy;
 use App\Policies\TodoPolicy;
+use App\User;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 use Laravel\Passport\Passport;
@@ -42,5 +43,7 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         Passport::routes();
+
+        Gate::define('viewWebTinker', fn(User $user) => $user->hasRole('admin'));
     }
 }

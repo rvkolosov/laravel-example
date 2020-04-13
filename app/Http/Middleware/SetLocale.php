@@ -16,7 +16,7 @@ class SetLocale
      */
     public function handle($request, Closure $next)
     {
-        $locale = cache('locale');
+        $locale = cache('locale') ?? 'en';
 
         if ($request->has('locale')) {
             $locale = $request->input('locale');

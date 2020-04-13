@@ -34,6 +34,7 @@
         "spatie/laravel-activitylog": "^3.11",
         "spatie/laravel-permission": "^3.11",
         "spatie/laravel-translatable": "^4.3",
+        "spatie/laravel-web-tinker": "^1.7",
         "spatie/nova-translatable": "^3.0",
         "vyuldashev/nova-permission": "^2.5"
     },
