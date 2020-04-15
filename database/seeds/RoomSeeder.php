@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Room;
 use Illuminate\Database\Seeder;
 
 class RoomSeeder extends Seeder
@@ -11,6 +12,15 @@ class RoomSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Room::unsetEventDispatcher();
+
+        $user = \App\User::first();
+
+        $room = Room::create([
+            'user_id' => $user->id,
+            'name' => 'default',
+        ]);
+
+        $room->users()->attach($user);
     }
 }

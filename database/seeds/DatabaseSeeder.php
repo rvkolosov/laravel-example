@@ -16,5 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeeder::class);
         $this->call(PostSeeder::class);
         $this->call(PassportSeeder::class);
+        $this->call(TodoSeeder::class);
+        $this->call(RoomSeeder::class);
     }
 }

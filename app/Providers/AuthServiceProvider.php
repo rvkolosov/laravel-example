@@ -12,6 +12,7 @@ use App\Policies\MessagePolicy;
 use App\Policies\PostPolicy;
 use App\Policies\RoomPolicy;
 use App\Policies\TodoPolicy;
+use App\Policies\UserPolicy;
 use App\User;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
@@ -25,7 +26,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        // 'App\Model' => 'App\Policies\ModelPolicy',
+        User::class => UserPolicy::class,
         Image::class => ImagePolicy::class,
         Message::class => MessagePolicy::class,
         Post::class => PostPolicy::class,

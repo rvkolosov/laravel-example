@@ -28,7 +28,7 @@ class MessagePolicy
      */
     public function viewAny(User $user)
     {
-        //
+        return $user->can('view-any-message');
     }
 
     /**
@@ -40,7 +40,7 @@ class MessagePolicy
      */
     public function view(User $user, Message $message)
     {
-        //
+        return $user->id === $message->user_id;
     }
 
     /**
@@ -51,7 +51,7 @@ class MessagePolicy
      */
     public function create(User $user)
     {
-        //
+        return $user->can('create-message');
     }
 
     /**
@@ -63,7 +63,8 @@ class MessagePolicy
      */
     public function update(User $user, Message $message)
     {
-        //
+        return $user->id === $message->user_id
+            && $message->updated_at >= now()->subMinutes(15);
     }
 
     /**
@@ -75,7 +76,9 @@ class MessagePolicy
      */
     public function delete(User $user, Message $message)
     {
-        //
+        return $user->can('delete-message')
+            && ($user->id === $message->user_id
+                && $message->updated_at >= now()->subMinutes(15));
     }
 
     /**
@@ -87,7 +90,7 @@ class MessagePolicy
      */
     public function restore(User $user, Message $message)
     {
-        //
+        return $user->can('restore-message');
     }
 
     /**
@@ -99,6 +102,6 @@ class MessagePolicy
      */
     public function forceDelete(User $user, Message $message)
     {
-        //
+        return false;
     }
 }

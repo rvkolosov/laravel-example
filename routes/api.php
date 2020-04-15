@@ -23,6 +23,11 @@ Route::apiResource('posts', 'PostController');
 Route::apiResource('rooms', 'RoomController');
 Route::apiResource('todos', 'TodoController');
 
+Route::post('rooms/{room}/users/{user}', 'RoomUserController@store')
+    ->name('rooms.users.store');
+Route::delete('rooms/{room}/users/{user}', 'RoomUserController@delete')
+    ->name('rooms.users.delete');
+
 Route::bind('image', function ($value) {
     return \App\Models\Image::where('id', $value)
         ->orWhere('slug', $value)

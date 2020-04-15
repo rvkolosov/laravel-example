@@ -39,7 +39,7 @@ class NewRoomMessage implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new PrivateChannel('rooms.' . $this->message->room_id);
+        return new PrivateChannel("rooms.{$this->message->room_id}");
     }
 
     /**

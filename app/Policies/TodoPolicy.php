@@ -26,9 +26,9 @@ class TodoPolicy
      * @param  \App\User  $user
      * @return mixed
      */
-    public function viewAny(User $user)
+    public function viewAny(?User $user)
     {
-        //
+        return true;
     }
 
     /**
@@ -38,9 +38,9 @@ class TodoPolicy
      * @param  \App\Models\Todo  $todo
      * @return mixed
      */
-    public function view(User $user, Todo $todo)
+    public function view(?User $user, Todo $todo)
     {
-        //
+        return true;
     }
 
     /**
@@ -51,7 +51,7 @@ class TodoPolicy
      */
     public function create(User $user)
     {
-        //
+        return $user->can('create-todo');
     }
 
     /**
@@ -63,7 +63,8 @@ class TodoPolicy
      */
     public function update(User $user, Todo $todo)
     {
-        //
+        return $user->can('update-todo')
+            && $user->id === $todo->user_id;
     }
 
     /**
@@ -75,7 +76,8 @@ class TodoPolicy
      */
     public function delete(User $user, Todo $todo)
     {
-        //
+        return $user->can('delete-todo')
+            && $user->id === $todo->user_id;
     }
 
     /**
@@ -87,7 +89,7 @@ class TodoPolicy
      */
     public function restore(User $user, Todo $todo)
     {
-        //
+        return $user->can('restore-todo');
     }
 
     /**
@@ -99,6 +101,6 @@ class TodoPolicy
      */
     public function forceDelete(User $user, Todo $todo)
     {
-        //
+        return false;
     }
 }

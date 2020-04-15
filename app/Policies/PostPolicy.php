@@ -26,7 +26,7 @@ class PostPolicy
      * @param  \App\User  $user
      * @return mixed
      */
-    public function viewAny(User $user)
+    public function viewAny(?User $user)
     {
         return true;
     }
@@ -38,7 +38,7 @@ class PostPolicy
      * @param  \App\Models\Post  $post
      * @return mixed
      */
-    public function view(User $user, Post $post)
+    public function view(?User $user, Post $post)
     {
         return true;
     }
@@ -51,7 +51,7 @@ class PostPolicy
      */
     public function create(User $user)
     {
-        return true;
+        return $user->can('create-post');
     }
 
     /**
@@ -63,7 +63,8 @@ class PostPolicy
      */
     public function update(User $user, Post $post)
     {
-        return true;
+        return $user->can('update-post')
+            && $user->id === $post->user_id;
     }
 
     /**
@@ -75,7 +76,8 @@ class PostPolicy
      */
     public function delete(User $user, Post $post)
     {
-        return true;
+        return $user->can('delete-post')
+            && $user->id === $post->user_id;
     }
 
     /**
@@ -87,7 +89,7 @@ class PostPolicy
      */
     public function restore(User $user, Post $post)
     {
-        return true;
+        return $user->can('restore-post');
     }
 
     /**

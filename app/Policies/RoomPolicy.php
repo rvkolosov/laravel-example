@@ -26,9 +26,9 @@ class RoomPolicy
      * @param  \App\User  $user
      * @return mixed
      */
-    public function viewAny(?User $user)
+    public function viewAny(User $user)
     {
-        return true;
+        return $user->can('view-any-room');
     }
 
     /**
@@ -40,7 +40,7 @@ class RoomPolicy
      */
     public function view(User $user, Room $room)
     {
-        //
+        return $user->inRoom($room);
     }
 
     /**
@@ -51,7 +51,7 @@ class RoomPolicy
      */
     public function create(User $user)
     {
-        //
+        return $user->can('create-room');
     }
 
     /**
@@ -63,7 +63,8 @@ class RoomPolicy
      */
     public function update(User $user, Room $room)
     {
-        //
+        return $user->can('update-room')
+            && $user->id === $room->user_id;
     }
 
     /**
@@ -75,7 +76,8 @@ class RoomPolicy
      */
     public function delete(User $user, Room $room)
     {
-        //
+        return $user->can('delete-room')
+            && $user->id === $room->user_id;
     }
 
     /**
@@ -87,7 +89,7 @@ class RoomPolicy
      */
     public function restore(User $user, Room $room)
     {
-        //
+        return $user->can('restore-room');
     }
 
     /**
@@ -99,6 +101,6 @@ class RoomPolicy
      */
     public function forceDelete(User $user, Room $room)
     {
-        //
+        return false;
     }
 }

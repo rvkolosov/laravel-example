@@ -80,7 +80,7 @@ return [
 
         // Deployment failed.
         'fail' => [
-            //
+            'chown:www-data',
         ],
 
         // After a deployment has been rolled back.

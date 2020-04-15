@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Message;
 
+use App\Models\Room;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreMessageRequest extends FormRequest
@@ -13,7 +14,8 @@ class StoreMessageRequest extends FormRequest
      */
     public function authorize()
     {
-        return $this->user()->inRoom($this->input('room_id'));
+        return $this->user()
+            ->inRoom(Room::find($this->input('room_id')));
     }
 
     /**
@@ -24,7 +26,8 @@ class StoreMessageRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'room_id' => 'required|numeric|exists:rooms,id',
+            'body' => 'required|string|min:1',
         ];
     }
 }
