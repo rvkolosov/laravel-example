@@ -13,6 +13,7 @@
         "bolechen/nova-activitylog": "^0.2.1",
         "caouecs/laravel-lang": "~4.0",
         "coderello/laravel-nova-lang": "^1.4",
+        "darkaonline/l5-swagger": "^7.0",
         "drobee/nova-sluggable": "^1.2",
         "epartment/nova-dependency-container": "^1.2",
         "facade/ignition": "^2.0",
