@@ -3,7 +3,7 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\HasMany;
+use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\HasOne;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
@@ -48,7 +48,7 @@ class Room extends Resource
             Text::make('Name'),
 
             HasOne::make('User'),
-            HasMany::make('Users'),
+            BelongsToMany::make('Users'),
         ];
     }
 

@@ -28,7 +28,7 @@ class RoomPolicy
      */
     public function viewAny(User $user)
     {
-        return $user->can('view-any-room');
+        return $user->hasPermissionTo('view-any-room');
     }
 
     /**
@@ -51,7 +51,7 @@ class RoomPolicy
      */
     public function create(User $user)
     {
-        return $user->can('create-room');
+        return $user->hasPermissionTo('create-room');
     }
 
     /**
@@ -63,7 +63,7 @@ class RoomPolicy
      */
     public function update(User $user, Room $room)
     {
-        return $user->can('update-room')
+        return $user->hasPermissionTo('update-room')
             && $user->id === $room->user_id;
     }
 
@@ -76,7 +76,7 @@ class RoomPolicy
      */
     public function delete(User $user, Room $room)
     {
-        return $user->can('delete-room')
+        return $user->hasPermissionTo('delete-room')
             && $user->id === $room->user_id;
     }
 
@@ -89,7 +89,7 @@ class RoomPolicy
      */
     public function restore(User $user, Room $room)
     {
-        return $user->can('restore-room');
+        return $user->hasPermissionTo('restore-room');
     }
 
     /**

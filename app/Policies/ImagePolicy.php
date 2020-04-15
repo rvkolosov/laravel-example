@@ -28,7 +28,7 @@ class ImagePolicy
      */
     public function viewAny(User $user)
     {
-        return $user->can('view-any-image');
+        return $user->hasPermissionTo('view-any-image');
     }
 
     /**
@@ -40,7 +40,7 @@ class ImagePolicy
      */
     public function view(User $user, Image $image)
     {
-        return $user->can('view-image');
+        return $user->hasPermissionTo('view-image');
     }
 
     /**
@@ -51,7 +51,7 @@ class ImagePolicy
      */
     public function create(User $user)
     {
-        return $user->can('create-image');
+        return $user->hasPermissionTo('create-image');
     }
 
     /**
@@ -63,7 +63,7 @@ class ImagePolicy
      */
     public function update(User $user, Image $image)
     {
-        return $user->can('update-image')
+        return $user->hasPermissionTo('update-image')
             && (optional($image->post)->user_id === $user->id
                 || is_null($image->post));
     }
@@ -77,7 +77,7 @@ class ImagePolicy
      */
     public function delete(User $user, Image $image)
     {
-        return $user->can('delete-image')
+        return $user->hasPermissionTo('delete-image')
             && (optional($image->post)->user_id === $user->id
                 || is_null($image->post));
     }
@@ -91,7 +91,7 @@ class ImagePolicy
      */
     public function restore(User $user, Image $image)
     {
-        return $user->can('restore-image');
+        return $user->hasPermissionTo('restore-image');
     }
 
     /**

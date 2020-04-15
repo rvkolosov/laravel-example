@@ -12,6 +12,7 @@ use App\Observers\MessageObserver;
 use App\Observers\PostObserver;
 use App\Observers\RoomObserver;
 use App\Observers\TodoObserver;
+use App\Observers\UserObserver;
 use App\User;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\ServiceProvider;
@@ -40,6 +41,7 @@ class AppServiceProvider extends ServiceProvider
 
         \Spatie\NovaTranslatable\Translatable::defaultLocales(['en', 'ru']);
 
+        User::observe(UserObserver::class);
         Message::observe(MessageObserver::class);
         Post::observe(PostObserver::class);
         Image::observe(ImageObserver::class);

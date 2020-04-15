@@ -51,7 +51,7 @@ class PostPolicy
      */
     public function create(User $user)
     {
-        return $user->can('create-post');
+        return $user->hasPermissionTo('create-post');
     }
 
     /**
@@ -63,7 +63,7 @@ class PostPolicy
      */
     public function update(User $user, Post $post)
     {
-        return $user->can('update-post')
+        return $user->hasPermissionTo('update-post')
             && $user->id === $post->user_id;
     }
 
@@ -76,7 +76,7 @@ class PostPolicy
      */
     public function delete(User $user, Post $post)
     {
-        return $user->can('delete-post')
+        return $user->hasPermissionTo('delete-post')
             && $user->id === $post->user_id;
     }
 
@@ -89,7 +89,7 @@ class PostPolicy
      */
     public function restore(User $user, Post $post)
     {
-        return $user->can('restore-post');
+        return $user->hasPermissionTo('restore-post');
     }
 
     /**

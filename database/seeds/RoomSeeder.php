@@ -22,5 +22,9 @@ class RoomSeeder extends Seeder
         ]);
 
         $room->users()->attach($user);
+
+        $user = \App\User::latest()->first();
+
+        $room->users()->attach($user);
     }
 }
