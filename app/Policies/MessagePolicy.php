@@ -17,7 +17,7 @@ class MessagePolicy
      */
     public function before(User $user, $ability)
     {
-        return $user->hasRole('admin');
+        return $user->hasRole('admin') ?: null;
     }
 
     /**
@@ -28,7 +28,7 @@ class MessagePolicy
      */
     public function viewAny(User $user)
     {
-        return $user->hasPermissionTo('view-any-message');
+        return $user->can('view-any-message');
     }
 
     /**
@@ -51,7 +51,7 @@ class MessagePolicy
      */
     public function create(User $user)
     {
-        return $user->hasPermissionTo('create-message');
+        return $user->can('create-message');
     }
 
     /**
@@ -76,7 +76,7 @@ class MessagePolicy
      */
     public function delete(User $user, Message $message)
     {
-        return $user->hasPermissionTo('delete-message')
+        return $user->can('delete-message')
             && ($user->id === $message->user_id
                 && $message->updated_at >= now()->subMinutes(15));
     }
@@ -90,7 +90,7 @@ class MessagePolicy
      */
     public function restore(User $user, Message $message)
     {
-        return $user->hasPermissionTo('restore-message');
+        return $user->can('restore-message');
     }
 
     /**

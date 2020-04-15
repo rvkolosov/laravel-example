@@ -17,7 +17,7 @@ class RoomPolicy
      */
     public function before(User $user, $ability)
     {
-        return $user->hasRole('admin');
+        return $user->hasRole('admin') ?: null;
     }
 
     /**
@@ -28,7 +28,7 @@ class RoomPolicy
      */
     public function viewAny(User $user)
     {
-        return $user->hasPermissionTo('view-any-room');
+        return $user->can('view-any-todo');
     }
 
     /**
@@ -51,7 +51,7 @@ class RoomPolicy
      */
     public function create(User $user)
     {
-        return $user->hasPermissionTo('create-room');
+        return $user->can('create-room');
     }
 
     /**
@@ -63,7 +63,7 @@ class RoomPolicy
      */
     public function update(User $user, Room $room)
     {
-        return $user->hasPermissionTo('update-room')
+        return $user->can('update-room')
             && $user->id === $room->user_id;
     }
 
@@ -76,7 +76,7 @@ class RoomPolicy
      */
     public function delete(User $user, Room $room)
     {
-        return $user->hasPermissionTo('delete-room')
+        return $user->can('delete-room')
             && $user->id === $room->user_id;
     }
 
@@ -89,7 +89,7 @@ class RoomPolicy
      */
     public function restore(User $user, Room $room)
     {
-        return $user->hasPermissionTo('restore-room');
+        return $user->can('restore-room');
     }
 
     /**

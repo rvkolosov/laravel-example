@@ -16,7 +16,7 @@ class UserPolicy
      */
     public function before(User $user, $ability)
     {
-        return $user->hasRole('admin');
+        return $user->hasRole('admin') ?: null;
     }
 
     /**
