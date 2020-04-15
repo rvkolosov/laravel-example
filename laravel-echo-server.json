@@ -1,0 +1,36 @@
+{
+  "authHost": "https://srv.rvkolosov.ru",
+  "authEndpoint": "/broadcasting/auth",
+  "clients": [
+    {
+      "appId": "9cb8fe1ab74e1463",
+      "key": "0bff11eae09a531559ce5e636e9a11bf"
+    }
+  ],
+  "database": "redis",
+  "databaseConfig": {
+    "redis": {},
+    "sqlite": {
+      "databasePath": "/database/laravel-echo-server.sqlite"
+    }
+  },
+  "devMode": false,
+  "host": null,
+  "port": "8443",
+  "protocol": "https",
+  "socketio": {},
+  "sslCertPath": "/etc/letsencrypt/live/rvkolosov.ru/fullchain.pem",
+  "sslKeyPath": "/etc/letsencrypt/live/rvkolosov.ru/privkey.pem",
+  "sslCertChainPath": "",
+  "sslPassphrase": "",
+  "subscribers": {
+    "http": true,
+    "redis": true
+  },
+  "apiOriginAllow": {
+    "allowCors": false,
+    "allowOrigin": "",
+    "allowMethods": "",
+    "allowHeaders": ""
+  }
+}

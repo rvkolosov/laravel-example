@@ -1,0 +1,10 @@
+before_script:
+  - echo "Before script"
+  - cd /home/deployer/laravel-example #your project path
+  - git pull
+  - composer install
+deploying:
+  stage: deploy
+  script:
+    - echo "Deployed"
+    - php artisan deploy
