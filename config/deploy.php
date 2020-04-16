@@ -71,6 +71,7 @@ return [
         'done' => [
             'chown:www-data',
             'fpm:reload',
+            'pm2:restart:laravel-example-echo',
         ],
 
         // Deployment succeeded.
@@ -81,12 +82,15 @@ return [
         // Deployment failed.
         'fail' => [
             'chown:www-data',
+            'fpm:reload',
+            'pm2:restart:laravel-example-echo',
         ],
 
         // After a deployment has been rolled back.
         'rollback' => [
             'chown:www-data',
             'fpm:reload',
+            'pm2:restart:laravel-example-echo',
         ],
     ],
 
@@ -159,6 +163,7 @@ return [
     'include' => [
         'recipe/chown.php',
         'recipe/artisan.php',
+        'recipe/pm2.php',
     ],
 
     /*
