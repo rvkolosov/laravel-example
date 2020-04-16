@@ -49,7 +49,7 @@ class NewRoomMessage implements ShouldBroadcast
      */
     public function broadcastAs()
     {
-        return '.new.room.message';
+        return 'new.room.message';
     }
 
     /**
