@@ -14,7 +14,7 @@ class RoomSeeder extends Seeder
     {
         Room::unsetEventDispatcher();
 
-        $user = \App\User::first();
+        $user = \App\User::find(1);
 
         $room = Room::create([
             'user_id' => $user->id,
@@ -23,7 +23,7 @@ class RoomSeeder extends Seeder
 
         $room->users()->attach($user);
 
-        $user = \App\User::latest()->first();
+        $user = \App\User::find(2);
 
         $room->users()->attach($user);
     }

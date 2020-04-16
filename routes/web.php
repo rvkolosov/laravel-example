@@ -21,3 +21,12 @@ Auth::routes();
 
 Route::get('home', 'HomeController@index')->name('home');
 
+Route::get('test', function () {
+   $user = \App\User::find(2);
+
+   dump($user);
+
+   $room = \App\Models\Room::first();
+
+   return $user->inRoom($room);
+});

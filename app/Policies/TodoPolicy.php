@@ -13,7 +13,7 @@ class TodoPolicy
     /**
      * @param User $user
      * @param $ability
-     * @return bool
+     * @return bool|null
      */
     public function before(User $user, $ability)
     {

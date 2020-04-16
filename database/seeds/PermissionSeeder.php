@@ -21,6 +21,7 @@ class PermissionSeeder extends Seeder
             'todo',
             'role',
             'permission',
+            'message',
         ];
 
         foreach ($models as $model) {
@@ -50,6 +51,7 @@ class PermissionSeeder extends Seeder
             'post',
             'room',
             'todo',
+            'message',
         ];
 
         $role->givePermissionTo('update-user');
