@@ -4,6 +4,7 @@ namespace App\Events\Room;
 
 use App\Models\Message;
 use App\User;
+use Illuminate\Broadcasting\Channel;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Broadcasting\PrivateChannel;
@@ -30,6 +31,8 @@ class NewRoomMessage implements ShouldBroadcast
     {
         $this->message = $message;
         $this->user = $user;
+
+        $this->dontBroadcastToCurrentUser();
     }
 
     /**

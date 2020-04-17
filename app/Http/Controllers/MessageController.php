@@ -44,7 +44,7 @@ class MessageController extends Controller
     {
         $message = Message::create($request->validated());
 
-        broadcast(new NewRoomMessage($message, $user))->toOthers();
+        NewRoomMessage::broadcast($message, $user);;
 
         return MessageResource::make($message);
     }
