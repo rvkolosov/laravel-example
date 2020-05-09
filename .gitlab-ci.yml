@@ -5,7 +5,7 @@ prod:
     - prod
   stage: deploy
   script:
-    - cd /home/deployer/laravel-example
+    - cd /home/gitlab-runner/laravel-example
     - git pull
     - composer install
     - php artisan deploy
