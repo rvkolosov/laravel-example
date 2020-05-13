@@ -46,18 +46,40 @@ class Image extends Model
 
     protected $fillable = [
         'slug',
-        'name',
         'alt',
     ];
 
     public $searchable = [
         'id',
         'slug',
-        'name',
         'alt',
     ];
 
     protected static $logFillable = true;
+
+    /**
+     * Retrieve the model for a bound value.
+     *
+     * @param  mixed  $value
+     * @param  string|null  $field
+     * @return \Illuminate\Database\Eloquent\Model|null
+     */
+    public function resolveRouteBinding($value, $field = null)
+    {
+        return $this->where('id', $value)
+            ->orWhere('slug', $value)
+            ->firstOrFail();
+    }
+
+    public function getSrc()
+    {
+        return cloudinary_image($this->slug, [
+            'fetch_format' => 'auto',
+            'quality' => 'auto',
+            'height' => 'auto',
+            'width' => 'auto',
+        ]);
+    }
 
     public function post()
     {

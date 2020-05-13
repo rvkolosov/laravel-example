@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Searches\Indexes\PostIndexConfigurator;
 use App\Searches\Rules\PostSearchRule;
 use App\User;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Jedrzej\Searchable\SearchableTrait;
@@ -56,6 +57,12 @@ use Spatie\Translatable\HasTranslations;
  * @method static bool|null restore()
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Post withTrashed()
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Post withoutTrashed()
+ * @property bool $is_enabled
+ * @property \Illuminate\Support\Carbon|null $published_at
+ * @property \ScoutElastic\Highlight|null $highlight
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post published()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post whereIsEnabled($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post wherePublishedAt($value)
  */
 class Post extends Model
 {
@@ -75,6 +82,12 @@ class Post extends Model
         'description',
         'text',
         'rating',
+        'is_enabled',
+        'published_at',
+    ];
+
+    protected $dates = [
+        'published_at',
     ];
 
     public $translatable = [
@@ -86,11 +99,22 @@ class Post extends Model
         'text',
     ];
 
+    protected $casts = [
+        'is_enabled' => 'boolean',
+    ];
+
     public $searchable = [
         'id',
         'image_id',
         'user_id',
         'rating',
+        'is_enabled',
+        'published_at',
+    ];
+
+    public $appends = [
+        'image',
+        'user',''
     ];
 
     protected $mapping = [
@@ -104,6 +128,27 @@ class Post extends Model
     protected $searchRules = [
         PostSearchRule::class,
     ];
+
+    /**
+     * Retrieve the model for a bound value.
+     *
+     * @param  mixed  $value
+     * @param  string|null  $field
+     * @return \Illuminate\Database\Eloquent\Model|null
+     */
+    public function resolveRouteBinding($value, $field = null)
+    {
+        return $this->where('id', $value)
+            ->orWhere('slug->en', $value)
+            ->orWhere('slug->ru', $value)
+            ->firstOrFail();
+    }
+
+    public function scopePublished(Builder $query)
+    {
+        return $query->where('is_enabled', true)
+            ->where('published_at', '<=', now());
+    }
 
     public function user()
     {

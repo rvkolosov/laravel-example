@@ -7,6 +7,7 @@ use App\Http\Requests\Post\UpdatePostRequest;
 use App\Http\Resources\Post\PostResource;
 use App\Http\Resources\Post\PostsResource;
 use App\Models\Post;
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -27,6 +28,7 @@ class PostController extends Controller
     public function index(Request $request)
     {
         $posts = Post::filtered()
+            ->published()
             ->paginate($request->input('count', 15));
 
         return PostsResource::collection($posts);
@@ -82,5 +84,10 @@ class PostController extends Controller
         $post->delete();
 
         return PostResource::make($post);
+    }
+
+    public function fsfs(Request $request, Authenticatable $user)
+    {
+        return $user;
     }
 }

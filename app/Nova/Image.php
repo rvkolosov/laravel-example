@@ -55,7 +55,6 @@ class Image extends Resource
 //
 //            ])->dependsOnNotEmpty('test'),
 
-            Text::make('Name'),
             Text::make('Alt'),
 
             CloudinaryImage::make('File', 'slug')

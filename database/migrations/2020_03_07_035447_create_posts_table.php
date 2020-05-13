@@ -28,6 +28,10 @@ class CreatePostsTable extends Migration
             $table->json('text');
             $table->float('rating')
                 ->default(0);
+            $table->boolean('is_enabled')
+                ->default(false);
+            $table->timestamp('published_at')
+                ->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

@@ -56,6 +56,8 @@ use Spatie\Permission\Traits\HasRoles;
  * @property-read int|null $rooms_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Todo[] $todos
  * @property-read int|null $todos_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Spatie\Activitylog\Models\Activity[] $activities
+ * @property-read int|null $activities_count
  */
 class User extends Authenticatable
 {

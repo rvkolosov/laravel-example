@@ -23,20 +23,14 @@ Route::apiResource('posts', 'PostController');
 Route::apiResource('rooms', 'RoomController');
 Route::apiResource('todos', 'TodoController');
 
+Route::get('images/{image}/load', 'ImageController@load');
+
+Route::prefix('search')->group(function() {
+    Route::get('posts', 'SearchController@posts')
+        ->name('posts');
+});
+
 Route::post('rooms/{room}/users/{user}', 'RoomUserController@store')
     ->name('rooms.users.store');
 Route::delete('rooms/{room}/users/{user}', 'RoomUserController@delete')
     ->name('rooms.users.delete');
-
-Route::bind('image', function ($value) {
-    return \App\Models\Image::where('id', $value)
-        ->orWhere('slug', $value)
-        ->firstOrFail();
-});
-
-Route::bind('post', function ($value) {
-    return \App\Models\Post::where('id', $value)
-        ->orWhere('slug->en', $value)
-        ->orWhere('slug->ru', $value)
-        ->firstOrFail();
-});

@@ -5,6 +5,10 @@ namespace App\Nova;
 use Drobee\NovaSluggable\Slug;
 use Drobee\NovaSluggable\SluggableText;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\Boolean;
+use Laravel\Nova\Fields\DateTime;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\HasOne;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Number;
@@ -59,9 +63,12 @@ class Post extends Resource
             ]),
 
             Number::make('Rating'),
+            Boolean::make('Is Enabled'),
+            DateTime::make('Published At'),
 
             HasOne::make('Image'),
-            HasOne::make('User'),
+            BelongsTo::make('User')
+
         ];
     }
 

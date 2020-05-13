@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 7.4.0 on 2020-04-07 19:59:56.
+ * Generated for Laravel 7.6.2 on 2020-04-19 20:26:08.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -3066,6 +3066,8 @@ namespace Illuminate\Support\Facades {
     /**
      * 
      *
+     * @method static \Illuminate\Contracts\Cache\Lock lock(string $name, int $seconds = 0, mixed $owner = null)
+     * @method static \Illuminate\Contracts\Cache\Lock restoreLock(string $name, string $owner)
      * @see \Illuminate\Cache\CacheManager
      * @see \Illuminate\Cache\Repository
      */ 
@@ -6517,7 +6519,7 @@ namespace Illuminate\Support\Facades {
      *
      * @method static \Illuminate\Http\Client\PendingRequest asJson()
      * @method static \Illuminate\Http\Client\PendingRequest asForm()
-     * @method static \Illuminate\Http\Client\PendingRequest attach(string $name, string $contents, string|null $filename = null, array $headers)
+     * @method static \Illuminate\Http\Client\PendingRequest attach(string $name, string $contents, string|null $filename = null, array $headers = [])
      * @method static \Illuminate\Http\Client\PendingRequest asMultipart()
      * @method static \Illuminate\Http\Client\PendingRequest bodyFormat(string $format)
      * @method static \Illuminate\Http\Client\PendingRequest contentType(string $contentType)
@@ -6637,6 +6639,31 @@ namespace Illuminate\Support\Facades {
         {
                         /** @var \Illuminate\Http\Client\Factory $instance */
                         $instance->assertSent($callback);
+        }
+        
+        /**
+         * Assert that a request / response pair was not recorded matching a given truth test.
+         *
+         * @param callable $callback
+         * @return void 
+         * @static 
+         */ 
+        public static function assertNotSent($callback)
+        {
+                        /** @var \Illuminate\Http\Client\Factory $instance */
+                        $instance->assertNotSent($callback);
+        }
+        
+        /**
+         * Assert that no request / response pair was recorded.
+         *
+         * @return void 
+         * @static 
+         */ 
+        public static function assertNothingSent()
+        {
+                        /** @var \Illuminate\Http\Client\Factory $instance */
+                        $instance->assertNothingSent();
         }
         
         /**
@@ -15263,6 +15290,29 @@ namespace Illuminate\Support {
  
 }
 
+namespace L5Swagger { 
+
+    /**
+     * 
+     *
+     */ 
+    class L5SwaggerFacade {
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function generateDocs()
+        {
+                        /** @var \L5Swagger\Generator $instance */
+                        return $instance->generateDocs();
+        }
+         
+    }
+ 
+}
+
 namespace Facade\Ignition\Facades { 
 
     /**
@@ -17721,7 +17771,7 @@ namespace  {
             /**
              * Add an "order by" clause to the query.
              *
-             * @param \Closure|\Illuminate\Database\Query\Builder|string $column
+             * @param \Closure|\Illuminate\Database\Query\Builder|\Illuminate\Database\Query\Expression|string $column
              * @param string $direction
              * @return \Illuminate\Database\Query\Builder 
              * @throws \InvalidArgumentException
@@ -18474,6 +18524,8 @@ namespace  {
     class Validator extends \Illuminate\Support\Facades\Validator {}
 
     class View extends \Illuminate\Support\Facades\View {}
+
+    class L5Swagger extends \L5Swagger\L5SwaggerFacade {}
 
     class Flare extends \Facade\Ignition\Facades\Flare {}
 

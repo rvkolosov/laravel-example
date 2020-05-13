@@ -6,6 +6,7 @@ use App\Http\Requests\Image\StoreImageRequest;
 use App\Http\Requests\Image\UpdateImageRequest;
 use App\Http\Resources\Image\ImageResource;
 use App\Http\Resources\Image\ImagesResource;
+use App\Http\Resources\Image\LoadImageResource;
 use App\Models\Image;
 use Illuminate\Http\Request;
 
@@ -13,7 +14,8 @@ class ImageController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth:api');
+        $this->middleware('auth:api')
+            ->except('load');
         $this->authorizeResource(Image::class);
     }
 
@@ -81,5 +83,10 @@ class ImageController extends Controller
         $image->delete();
 
         return ImageResource::make($image);
+    }
+
+    public function load(Image $image)
+    {
+        return LoadImageResource::make($image);
     }
 }
