@@ -9,9 +9,9 @@
     "license": "MIT",
     "require": {
         "php": "^7.4",
+        "andrey-helldar/laravel-lang-publisher": "^4.0",
         "babenkoivan/scout-elasticsearch-driver": "^4.2",
         "bolechen/nova-activitylog": "^0.2.1",
-        "caouecs/laravel-lang": "~4.0",
         "coderello/laravel-nova-lang": "^1.4",
         "darkaonline/l5-swagger": "^7.0",
         "drobee/nova-sluggable": "^1.2",
@@ -82,6 +82,9 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
+        ],
+        "post-update-cmd": [
+            "@php artisan lang:update"
         ]
     },
     "repositories": [
