@@ -84,7 +84,7 @@
             "@php artisan key:generate --ansi"
         ],
         "post-update-cmd": [
-            "@php artisan lang:update"
+            "php artisan lang:update"
         ]
     },
     "repositories": [
